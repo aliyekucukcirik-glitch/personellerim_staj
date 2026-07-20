@@ -1,0 +1,67 @@
+.ozetKonteyner {
+  width: 100%;
+  padding: 0 26px; /* Kenar hizasını korumak için */
+  text-align: left;
+}
+
+/* Küçük Gri Üst Başlıklar */
+.bolumBaslik {
+  font-size: 13px;
+  font-weight: 700;
+  color: #94A3B8;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+/* Yıllık İzin Satırı */
+.yillikSatir {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1E1B4B;
+}
+
+.morYazi {
+  color: #8B5CF6;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.ayiriciCizgi {
+  width: 100%;
+  height: 1px;
+  background-color: #E2E8F0;
+  margin: 16px 0 20px 0;
+}
+
+/* Saatlik İzin Kutucukları Alanı */
+.kutularAlani {
+  display: flex;
+  gap: 12px; 
+}
+
+.izinKutusu {
+  flex: 1; /* 3 kutunun da ekrana eşit genişlikte dağılmasını sağlar */
+  background-color: #FFFFFF;
+  border-radius: 20px; 
+  padding: 16px 10px;
+  text-align: center; 
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.04); 
+}
+
+.kutuBaslik {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94A3B8;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.kutuDeger {
+  font-size: 14px;
+  font-weight: 800;
+  color: #8B5CF6; 
+}
