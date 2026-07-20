@@ -1,12 +1,22 @@
 import React from 'react';
+import ÜstBar from './components/ÜstBar.jsx';
 
-function App() {
+export default function App() {
   return (
-    <div className="container mt-5 text-center">
-      <h1 className="text-primary">Personel Yönetim Sistemi</h1>
-      <p className="lead">Figma tasarımını kodlamaya hazırsın!</p>
+    <div style={styles.anaEkranKonteyner}>
+      <ÜstBar />
     </div>
   );
 }
 
-export default App;
+const styles = {
+  anaEkranKonteyner: {
+    width: '100vw',
+    height: '100vh',
+    backgroundColor: 'rgb(248, 247, 252)', 
+    display: 'flex',
+    flexDirection: 'column',
+    overflowX: 'hidden',
+    overflowY: 'auto',
+  },
+};
