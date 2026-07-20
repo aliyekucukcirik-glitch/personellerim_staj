@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 16px 20px;
+  padding: 22px 30px; 
   box-sizing: border-box;
   background-color: transparent;
 }
@@ -15,24 +15,27 @@
   padding: 0;
   display: flex;
   align-items: center;
+  transform: scale(1.15); 
 }
 
 .logoAlan {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 10px; 
 }
 
-.logoIkon {
-  display: flex;
-  align-items: center;
+.kurumsalLogo {
+  width: auto;
+  height: 36px; 
+  display: block;
+  object-fit: contain;
 }
 
 .logoYazi {
-  fontSize: 16px;
+  font-size: 19px; 
   font-weight: 800;
-  color: rgb(30, 27, 75); 
-  letter-spacing: 0.5px;
+  color: rgb(30, 27, 75);
+  letter-spacing: 0.7px;
   font-family: 'Inter', sans-serif;
 }
 
@@ -44,27 +47,27 @@
   position: relative;
   display: flex;
   align-items: center;
+  transform: scale(1.15); 
 }
 
-/* Zilin arkasındaki siyah gölge/daire efekti */
+
 .bildirimNoktaDis {
   position: absolute;
-  top: 2px;
-  right: 2px;
-  width: 10px;
-  height: 10px;
+  top: 1px;
+  right: 1px;
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
   background-color: #000000;
   z-index: 1;
 }
 
-/* Ön plandaki canlı turuncu bildirim noktası */
 .bildirimNoktaIc {
   position: absolute;
-  top: 3px;
-  right: 3px;
-  width: 8px;
-  height: 8px;
+  top: 2px;
+  right: 2px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   background-color: rgb(255, 87, 34);
   z-index: 2;
