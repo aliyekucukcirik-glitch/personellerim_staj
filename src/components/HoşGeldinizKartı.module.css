@@ -20,7 +20,7 @@
 
 .isimYazi {
   font-size: 24px;
-  font-weight: 800;
+  font-weight: 600;
   color: #1E1B4B;
   margin-bottom: 4px;
 }
@@ -40,7 +40,7 @@
   text-align: left; /* Kart içi yazılar da tamamen sola yaslı */
   position: relative;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(109, 40, 217, 0.2);
+  box-shadow: 0 12px 30px rgba(83, 36, 159, 0.45);
 }
 
 /*  sol üstündeki o narin parıltı/ışık bulutu efekti */
