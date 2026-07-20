@@ -1,0 +1,93 @@
+.kartKonteyner {
+  width: 100%;
+  padding: 0 26px; 
+  box-sizing: border-box;
+}
+
+/* Tüm metinler sola yaslı */
+.selamlamaGrup {
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.hosGeldinizYazi {
+  font-size: 14px;
+  font-weight: 700;
+  color: #94A3B8;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.isimYazi {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1E1B4B;
+  margin-bottom: 4px;
+}
+
+.idYazi {
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748B;
+}
+
+
+.vardiyaKarti {
+  background: linear-gradient(135deg, #A855F7 0%, #6D28D9 100%);
+  border-radius: 32px; /* Köşeler tam görseldeki gibi ultra oval */
+  padding: 24px;
+  color: #FFFFFF;
+  text-align: left; /* Kart içi yazılar da tamamen sola yaslı */
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(109, 40, 217, 0.2);
+}
+
+/*  sol üstündeki o narin parıltı/ışık bulutu efekti */
+.vardiyaKarti::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  filter: blur(20px);
+}
+
+.vardiyaBaslik {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.8px;
+  margin-bottom: 6px;
+}
+
+.vardiyaTuru {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* tarih ve saat dizilimi */
+.vardiyaDetaySatir {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.ayiriciCizgi {
+  width: 1px;
+  height: 14px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.noktaIkon {
+  width: 5px;
+  height: 5px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+}
