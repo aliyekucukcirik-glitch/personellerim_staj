@@ -1,0 +1,71 @@
+.ustBarKonteyner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 16px 20px;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+.buton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.logoAlan {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logoIkon {
+  display: flex;
+  align-items: center;
+}
+
+.logoYazi {
+  fontSize: 16px;
+  font-weight: 800;
+  color: rgb(30, 27, 75); 
+  letter-spacing: 0.5px;
+  font-family: 'Inter', sans-serif;
+}
+
+.bildirimButon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Zilin arkasındaki siyah gölge/daire efekti */
+.bildirimNoktaDis {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #000000;
+  z-index: 1;
+}
+
+/* Ön plandaki canlı turuncu bildirim noktası */
+.bildirimNoktaIc {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgb(255, 87, 34);
+  z-index: 2;
+}
