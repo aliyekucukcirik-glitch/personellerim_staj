@@ -2,6 +2,7 @@ import React from 'react';
 import ÜstBar from './components/ÜstBar.jsx';
 import HoşGeldinizKartı from './components/HoşGeldinizKartı.jsx';
 import İzinDurumuÖzeti from './components/İzinDurumuÖzeti.jsx';
+import AvansBilgileri from './components/AvansBilgileri.jsx';
 
 export default function App() {
   return (
@@ -9,6 +10,7 @@ export default function App() {
       <ÜstBar />
       <HoşGeldinizKartı />
       <İzinDurumuÖzeti />
+      <AvansBilgileri />
     </div>
   );
 }
@@ -20,7 +22,7 @@ const styles = {
     backgroundColor: 'rgb(248, 247, 252)', 
     display: 'flex',
     flexDirection: 'column',
-    gap: '20px', /* dikey boşluk bıraktık kartlar arası*/ 
+    gap: '24px', 
     overflowX: 'hidden',
     overflowY: 'auto',
   },
