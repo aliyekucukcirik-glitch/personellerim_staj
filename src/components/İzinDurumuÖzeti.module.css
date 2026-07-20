@@ -1,6 +1,8 @@
 .ozetKonteyner {
   width: 100%;
-  padding: 0 26px; /* Kenar hizasını korumak için */
+  /* Padding ve border değerlerinin genişliğe dahil edilmesini sağlar */
+  box-sizing: border-box; 
+  padding: 0 26px; 
   text-align: left;
 }
 
@@ -25,7 +27,7 @@
 
 .morYazi {
   color: #8B5CF6;
-  font-weight: 800;
+  font-weight: 600;
   font-size: 18px;
 }
 
@@ -52,7 +54,7 @@
 }
 
 .kutuBaslik {
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 700;
   color: #94A3B8;
   letter-spacing: 0.5px;
@@ -61,7 +63,7 @@
 }
 
 .kutuDeger {
-  font-size: 14px;
-  font-weight: 800;
+  font-size: 16px;
+  font-weight: 600;
   color: #8B5CF6; 
 }
