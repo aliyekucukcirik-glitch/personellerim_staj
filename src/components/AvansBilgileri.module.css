@@ -1,5 +1,7 @@
 .avansKonteyner {
   width: 100%;
+  /* Padding'i genişliğe dahil eder taşma sorunu olmaz */
+  box-sizing: border-box; 
   padding: 0 26px; 
   text-align: left;
 }
@@ -10,7 +12,7 @@
   font-weight: 700;
   color: #94A3B8;
   letter-spacing: 0.5px;
-  margin-bottom: 20px; /* Başlık ile ilk satır arası boşluk */
+  margin-bottom: 20px;
 }
 
 /* Her Bir Avans Satırı */
@@ -18,7 +20,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 16px; /* Satırın altındaki boşluk */
+  padding-bottom: 16px;
 }
 
 /* Sol Taraftaki İkon ve Metin Grubu */
@@ -29,9 +31,10 @@
 }
 
 .ikon {
-  font-size: 20px;
-  color: #8B5CF6; 
-  margin-top: 2px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px; 
 }
 
 /* Dönem ve Başlık Grubu */
@@ -48,16 +51,16 @@
 }
 
 .durumBaslik {
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
   color: #64748B;
 }
 
 
 .tutarYazi {
   font-size: 20px;
-  font-weight: 800;
-  color: #FBBF24; 
+  font-weight: 700;
+  color: #FBBF24;
 }
 
 .ayiriciCizgi {
