@@ -1,12 +1,11 @@
 .avansKonteyner {
   width: 100%;
-  /* Padding'i genişliğe dahil eder taşma sorunu olmaz */
-  box-sizing: border-box; 
+  box-sizing: border-box; /*Taşma sorununu engellemek için*/
   padding: 0 26px; 
   text-align: left;
 }
 
-/* Küçük Üst Başlık */
+/*Üst Başlık */
 .bolumBaslik {
   font-size: 13px;
   font-weight: 700;
@@ -23,10 +22,9 @@
   padding-bottom: 16px;
 }
 
-/* Sol Taraftaki İkon ve Metin Grubu */
 .solAlan {
   display: flex;
-  align-items: flex-start;
+  align-items: center; /*ikonları metinlerin dikey ortasına çektik */
   gap: 12px;
 }
 
@@ -34,7 +32,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1px; 
+  margin-top: 0; 
 }
 
 /* Dönem ve Başlık Grubu */

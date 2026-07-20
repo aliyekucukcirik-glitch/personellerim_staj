@@ -1,43 +1,68 @@
+.altBarSarmaKonteyner {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0; 
+  background-color: transparent;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
+
 .altBarKonteyner {
   width: 100%;
   box-sizing: border-box;
-  padding: 12px 26px 24px 26px;
+  padding: 30px 26px 20px 26px; 
   background-color: #FFFFFF;
-  border-top-left-radius: 36px;
-  border-top-right-radius: 36px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end; /* Butonların alt tabanını eşitlemek için */
-  box-shadow: 0 -10px 30px rgba(139, 92, 246, 0.06);
+  align-items: flex-end; /* Tüm elemanların alt tabanını eşitler */
+  box-shadow: 0 -10px 30px rgba(109, 40, 217, 0.06);
 }
 
-/* Her Bir Menü Elemanı (Buton + Yazı) */
+
 .menuEleman {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  justify-content: flex-end;
   flex: 1;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
+  height: 48px; 
+  gap: 6px;
 }
 
 .yazi {
   font-size: 12px;
-  font-weight: 700;
-  color: #94A3B8; 
+  font-weight: 600;
+  color: #64748B;
+  white-space: nowrap; /* Yazıların kırılmasını engeller */
 }
 
+
+.morButonGrup {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+  height: 48px;
+}
+
+
 .morButon {
-  width: 54px;
-  height: 54px;
+  width: 56px;
+  height: 56px;
   background: linear-gradient(135deg, #A855F7 0%, #6D28D9 100%);
-  border-radius: 18px; /* Tam kare değil, köşeleri oval bento kare */
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 20px rgba(109, 40, 217, 0.25);
-  margin-bottom: 2px; /* Yazıdan hafifçe yukarıda dursun diye */
+  box-shadow: 0 10px 25px rgba(109, 40, 217, 0.35);
+  position: absolute;
+  top: -42px; 
 }

@@ -3,27 +3,41 @@ import ÜstBar from './components/ÜstBar.jsx';
 import HoşGeldinizKartı from './components/HoşGeldinizKartı.jsx';
 import İzinDurumuÖzeti from './components/İzinDurumuÖzeti.jsx';
 import AvansBilgileri from './components/AvansBilgileri.jsx';
+// Alt barı içeri aktarıyoruz
+import AltBar from './components/AltBar.jsx';
 
 export default function App() {
   return (
     <div style={styles.anaEkranKonteyner}>
-      <ÜstBar />
-      <HoşGeldinizKartı />
-      <İzinDurumuÖzeti />
-      <AvansBilgileri />
+      {/* Üst ve Orta İçerik Alanı */}
+      <div style={styles.icerikAlani}>
+        <ÜstBar />
+        <HoşGeldinizKartı />
+        <İzinDurumuÖzeti />
+        <AvansBilgileri />
+      </div>
+      <AltBar />
     </div>
   );
 }
+
 
 const styles = {
   anaEkranKonteyner: {
     width: '100vw',
     height: '100vh',
-    backgroundColor: 'rgb(248, 247, 252)', 
+    backgroundColor: '#F8F7FC', 
     display: 'flex',
     flexDirection: 'column',
-    gap: '24px', 
-    overflowX: 'hidden',
-    overflowY: 'auto',
+    justifyContent: 'space-between',
+    overflow: 'hidden',
   },
+  icerikAlani: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '24px',
+    overflowY: 'auto',
+    padding: '0 0 16px 0', 
+    flex: 1,
+  }
 };

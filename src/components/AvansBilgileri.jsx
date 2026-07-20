@@ -14,7 +14,7 @@ export default function AvansBilgileri() {
         <div className={styles.solAlan}>
           <div className={styles.ikon}>
            
-            <History color="#94A3B8" size={20} strokeWidth={2} />
+            <History color="#94A3B8" size={18} strokeWidth={2} />
           </div>
           <div className={styles.metinGrup}>
             <div className={styles.donemBaslik}>2026-6 Geçmiş Dönem</div>
