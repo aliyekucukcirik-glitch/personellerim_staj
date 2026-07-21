@@ -6,10 +6,12 @@ import AvansBilgileri from './components/AvansBilgileri.jsx';
 import AltBar from './components/AltBar.jsx';
 import ProfilMenusu from './components/ProfilMenusu/ProfilMenusu.jsx';
 import ProfilBilgileri from './components/ProfilMenusu/ProfilBilgileri.jsx';
+import Ayarlar from './components/ProfilMenusu/Ayarlar.jsx';
 
 export default function App() {
   const [profilAcik, setProfilAcik] = useState(false);
   const [profilBilgileriAcik, setProfilBilgileriAcik] = useState(false);
+  const [ayarlarAcik, setAyarlarAcik] = useState(false);
 
   return (
     <div style={styles.anaEkranKonteyner}>
@@ -20,10 +22,18 @@ export default function App() {
           setProfilAcik(false);
           setProfilBilgileriAcik(true);
         }}
+        onAyarlarAc={() => {
+          setProfilAcik(false);
+          setAyarlarAcik(true);
+        }}
       />
         <ProfilBilgileri 
         acikMi={profilBilgileriAcik} 
         kapat={() => setProfilBilgileriAcik(false)} 
+      />
+        <Ayarlar 
+        acikMi={ayarlarAcik} 
+        kapat={() => setAyarlarAcik(false)} 
       />
 
       <div style={styles.icerikAlani}>
@@ -57,7 +67,6 @@ const styles = {
     flexDirection: 'column',
     gap: '24px',
     overflowY: 'auto',
-    /* Sağdan soldan Figma hizasını korumak için boşluğu sabitledik */
     paddingBottom: '16px ', 
     flex: 1,
   }

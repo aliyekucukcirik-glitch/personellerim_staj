@@ -1,0 +1,287 @@
+/* Tam Ekran Konteyner */
+.tamSayfaKonteyner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f6f5fb;
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  
+  transform: translateY(100%);
+  animation: sayfayaGiris 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes sayfayaGiris {
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Üst Bar */
+.ustBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 24px;
+  padding-top: 12px;
+}
+
+.baslikYazi {
+  font-size: 17px;
+  font-weight: 800;
+  color: #1e1b4b;
+  letter-spacing: 0.6px;
+}
+
+.kapatButon {
+  position: absolute;
+  right: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #1e1b4b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+/* İçerik Alanı */
+.icerikAlani {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+/* 🌟 1. KART: TEMA VE DİL KARTI (Arka Planda Dalga Efektli) 🌟 */
+.temaKart {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 28px;
+  padding: 24px;
+  border: 1.5px solid #e9d5ff;
+  box-shadow: 0 4px 25px rgba(109, 40, 217, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow: hidden; /* Dalganın dışarı taşmasını engeller */
+}
+
+/* Dalga SVG Arka Planı */
+.dalgaArkaPlan {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.55;
+  z-index: 1;
+}
+
+.temaIcerik {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.etiket {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #a0aec0;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+/* Radio Seçenekleri */
+.radioGrubu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.radioSatir {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  text-align: left;
+}
+
+.radioHalka {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.radioHalkaSecili {
+  border-color: #8b5cf6;
+}
+
+.radioNokta {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #8b5cf6;
+}
+
+.radioYazi {
+  font-size: 15px;
+  font-weight: 700;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s ease;
+}
+
+.radioYaziSecili {
+  color: #8b5cf6;
+}
+
+/* Dil Değiştirme Satırı */
+.dilSatir {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px dashed #f1f5f9;
+}
+
+.dilSol {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1e1b4b;
+}
+
+.dilKutusu {
+  display: flex;
+  background-color: #f1f5f9;
+  padding: 3px;
+  border-radius: 12px;
+  gap: 2px;
+}
+
+.dilButon {
+  border: none;
+  background: transparent;
+  padding: 6px 14px;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dilButonAktif {
+  background-color: #ffffff;
+  color: #8b5cf6;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* 🌟 2. KART: TOGGLE/SWITCH AYARLARI KARTI 🌟 */
+.ayarlarKart {
+  background-color: #ffffff;
+  border-radius: 28px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 25px rgba(109, 40, 217, 0.03);
+}
+
+.ayarsatir {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+
+.ayarsatir:not(:last-child) {
+  border-bottom: 1.5px dashed #f1f5f9;
+}
+
+.ayarSol {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.ayarIkon {
+  color: #8b5cf6;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.ayarMetin {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.ayarBaslik {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1e1b4b;
+}
+
+.ayarAciklama {
+  font-size: 12px;
+  font-weight: 500;
+  color: #94a3b8;
+  line-height: 1.35;
+}
+
+/* 🌟 ÇALIŞAN TOGGLE / SWITCH BİLEŞENİ 🌟 */
+.toggleSwitch {
+  width: 48px;
+  height: 26px;
+  background-color: #e2e8f0;
+  border-radius: 20px;
+  padding: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.25s ease;
+  flex-shrink: 0;
+}
+
+.toggleSwitchAcik {
+  background-color: #8b5cf6;
+}
+
+.toggleNokta {
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toggleNoktaAcik {
+  transform: translateX(22px);
+}

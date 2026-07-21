@@ -5,7 +5,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #f6f5fb; /* Orijinal arka plan rengi */
+  background-color: #f6f5fb; 
   z-index: 500;
   display: flex;
   flex-direction: column;
@@ -53,7 +53,7 @@
   padding: 4px;
 }
 
-/* 🌟 İçerik Alanı - Ekranın genişliğini doldurur 🌟 */
+
 .icerikAlani {
   display: flex;
   flex-direction: column;
@@ -63,7 +63,7 @@
   margin: 0 auto;
 }
 
-/* 1. KART: Profil Resim ve İsim Kartı */
+
 .profilKart {
   background-color: #ffffff;
   border-radius: 32px;
@@ -142,7 +142,7 @@
   box-shadow: 0 4px 25px rgba(109, 40, 217, 0.03);
 }
 
-/* 🌟 DİKAY VE YATAY HİZALAMA KURALI (Her şey tam sol hizada) 🌟 */
+
 .blok {
   display: flex;
   flex-direction: column;
