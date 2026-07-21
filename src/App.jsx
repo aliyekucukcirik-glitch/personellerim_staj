@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ÜstBar from './components/ÜstBar.jsx';
 import HoşGeldinizKartı from './components/HoşGeldinizKartı.jsx';
 import İzinDurumuÖzeti from './components/İzinDurumuÖzeti.jsx';
@@ -10,14 +10,25 @@ import Ayarlar from './components/ProfilMenusu/Ayarlar.jsx';
 import Bildirimler from './components/ProfilMenusu/Bildirimler.jsx';
 import SifreDegistir from './components/ProfilMenusu/SifreDegistir.jsx';
 import GirisEkrani from './components/GirisEkrani/GirisEkrani.jsx';
+import YukleniyorEkrani from './components/YukleniyorEkrani/YukleniyorEkrani.jsx';
 
 export default function App() {
+  const [yukleniyor, setYukleniyor] = useState(true);
   const [girisYapildi, setGirisYapildi] = useState(true);
   const [profilAcik, setProfilAcik] = useState(false);
   const [profilBilgileriAcik, setProfilBilgileriAcik] = useState(false);
   const [ayarlarAcik, setAyarlarAcik] = useState(false);
   const [bildirimlerAcik, setBildirimlerAcik] = useState(false);
   const [sifreDegistirAcik, setSifreDegistirAcik] = useState(false);
+
+  // Sayfa yükleniyor ekranı zamanlayıcı
+  useEffect(() => {
+    const zamanlayici = setTimeout(() => {
+      setYukleniyor(false);
+    }, 2500);
+
+    return () => clearTimeout(zamanlayici);
+  }, []);
 
  // Şifre güncellendiğinde veya Oturumu Kapat'a basıldığında giriş ekranına yönlendirir
   const handleSifreGuncellendi = () => {
@@ -29,6 +40,10 @@ export default function App() {
     setProfilAcik(false);
     setGirisYapildi(false);
   };
+
+  if (yukleniyor) {
+    return <YukleniyorEkrani />;
+  }
 
   // Eğer giriş yapılmamışsa Giriş Ekranı gösterilir
   if (!girisYapildi) {

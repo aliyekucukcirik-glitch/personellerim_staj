@@ -1,0 +1,110 @@
+.anaKonteyner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f6f5fb !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  overflow: hidden;
+}
+
+.auraPembe {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(244, 114, 182, 0.35) 0%, rgba(255, 255, 255, 0) 70%);
+  filter: blur(50px);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.auraMor {
+  position: absolute;
+  bottom: 15%;
+  right: 10%;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.35) 0%, rgba(255, 255, 255, 0) 70%);
+  filter: blur(60px);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ORTADAKİ BEYAZ DAİRESEL KART */
+.daireKart {
+  width: 310px;
+  height: 310px;
+  border-radius: 50%;
+  background: #ffffff !important;
+  box-shadow: 0 16px 48px rgba(124, 58, 237, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  animation: olceklenarakGel 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes olceklenarakGel {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* LOGO VE METİNLER */
+.logoGorsel {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.anaBaslik {
+  font-size: 23px;
+  font-weight: 900;
+  color: #1e1b4b;
+  letter-spacing: -0.2px;
+  margin-bottom: 4px;
+}
+
+.altBaslik {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-bottom: 22px;
+}
+
+/* MOR PARILDAYAN VERSİYON HALKASI (v3.3.2) */
+.versiyonRozet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  border: 2px solid #c084fc;
+  box-shadow: 0 0 12px rgba(192, 132, 252, 0.5), 
+              inset 0 0 8px rgba(192, 132, 252, 0.2);
+}
+
+.versiyonYazi {
+  font-size: 12px;
+  font-weight: 700;
+  color: #7c3aed;
+  letter-spacing: 0.5px;
+}
