@@ -1,11 +1,11 @@
-/* Arka planı karartan katman (Overlay) */
+/* Arka plan karartma */
 .karartmaKatmani {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(15, 23, 42, 0.4);
+  background-color: rgba(15, 23, 42, 0.35);
   z-index: 200;
   opacity: 0;
   animation: kararmaAcilis 0.2s ease-out forwards;
@@ -17,79 +17,86 @@
   }
 }
 
-/* Popup Kartı  */
-.popupKonteyner {
+/* 🌟 Dış Kapsayıcı - Ekranın en soluna yaslı 🌟 */
+.baloncukGrubu {
   position: absolute;
-  bottom: 85px; /* Alt barın hemen üstünde durur */
-  left: 20px;
-  width: 250px;
-  background-color: #ffffff;
-  border-radius: 24px;
-  padding: 8px;
-  box-sizing: border-box;
-  box-shadow: 0 15px 35px rgba(109, 40, 217, 0.15);
+  bottom: 120px; /* Alt barın biraz üzerinde */
+  left: 0px;   /* Ekranın soluna tam yaslı */
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  
-  transform: translateY(15px);
-  opacity: 0;
-  animation: yukariSuzul 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  align-items: flex-start; /* Sola hizalama */
+  gap: 10px;
+  z-index: 201;
 }
 
-@keyframes yukariSuzul {
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Menüdeki Her Bir Satır */
-.menuElemani {
+/* 🌟 Genel Buton Yapısı 🌟 */
+.baloncukEleman {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 12px;
-  border-radius: 16px;
+  background-color: #ffffff;
+  border-radius: 18px;
   border: none;
-  background: transparent;
   cursor: pointer;
-  width: 100%;
-  text-align: left;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+  
+  /* Sıralı Animasyon */
+  opacity: 0;
+  transform: translateY(16px) scale(0.95);
+  animation: baloncukAcilis 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-.menuElemani:hover {
-  background-color: #f8f7fc;
+@keyframes baloncukAcilis {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
-/* Sol İkon Kutusunun Yuvarlak Zeminleri */
-.ikonKutusu {
+.baloncukEleman:nth-child(1) { animation-delay: 0.03s; }
+.baloncukEleman:nth-child(2) { animation-delay: 0.07s; }
+.baloncukEleman:nth-child(3) { animation-delay: 0.11s; }
+.baloncukEleman:nth-child(4) { animation-delay: 0.15s; }
+
+/* 🌟 1. PROFİL BİLGİLERİ (En Büyük ve En Uzun) 🌟 */
+.profilAnaBaloncuk {
+  padding: 12px 24px 12px 14px;
+  min-width: 250px; /* En uzun durmasını sağlar */
+}
+
+/* Sadece Profil Bilgileri Butonunda Olan Mor İkon Kutusu */
+.profilIkonKutusu {
   width: 36px;
   height: 36px;
   border-radius: 12px;
-  background-color: #f1f5f9;
+  background: linear-gradient(135deg, #A855F7 0%, #6D28D9 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-/* Profil Bilgileri Butonu */
-.profilAktifKutu {
-  background: linear-gradient(135deg, #a855f7 0%, #6d28d9 100%);
+/* 🌟 DİĞER 3 BUTON (Birbiriyle Birebir Eşit Genişlikte ve Arkalarında Kart YOK) 🌟 */
+.esitBaloncuk {
+  padding: 12px 20px;
+  width: 200px; /* Üçünün genişliği eşit yapıldı */
+  box-sizing: border-box;
 }
 
+/* YAZI DÜZENİ */
 .yazi {
-  font-size: 14px;
+  font-size: 14.5px;
   font-weight: 600;
-  color: #1e1b4b;
+  color: #1E1B4B;
+  white-space: nowrap;
 }
 
-/* Oturumu Kapat Alanı */
+/* 🌟 4. OTURUMU KAPAT (Arka Plan Pembe/Kırmızı) 🌟 */
+.cikisBaloncuk {
+  background-color: #fae7e7; /* Düz beyaz değil, hafif kırmızı/pembe */
+}
+
 .cikisYazi {
-  color: #ef4444;
-}
-
-.cikisKutusu {
-  background-color: #fef2f2;
+  color: #EF4444;
+  font-weight: 700;
 }
