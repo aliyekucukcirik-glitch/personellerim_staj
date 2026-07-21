@@ -9,19 +9,26 @@ import ProfilBilgileri from './components/ProfilMenusu/ProfilBilgileri.jsx';
 import Ayarlar from './components/ProfilMenusu/Ayarlar.jsx';
 import Bildirimler from './components/ProfilMenusu/Bildirimler.jsx';
 import SifreDegistir from './components/ProfilMenusu/SifreDegistir.jsx';
+import GirisEkrani from './components/GirisEkrani/GirisEkrani.jsx';
 
 export default function App() {
+  const [girisYapildi, setGirisYapildi] = useState(true);
   const [profilAcik, setProfilAcik] = useState(false);
   const [profilBilgileriAcik, setProfilBilgileriAcik] = useState(false);
   const [ayarlarAcik, setAyarlarAcik] = useState(false);
   const [bildirimlerAcik, setBildirimlerAcik] = useState(false);
   const [sifreDegistirAcik, setSifreDegistirAcik] = useState(false);
 
+ // Şifre güncellendiğinde veya Oturumu Kapat'a basıldığında giriş ekranına yönlendirir
   const handleSifreGuncellendi = () => {
     setSifreDegistirAcik(false);
-    alert('Şifreniz başarıyla değiştirildi! Giriş sayfasına yönlendiriliyorsunuz.');
-    // Giriş ekranı bileşeni yapıldığında buraya yönlendirme state'i gelecek
+    setGirisYapildi(false);
   };
+
+  // Eğer giriş yapılmamışsa Giriş Ekranı gösterilir
+  if (!girisYapildi) {
+    return <GirisEkrani onGirisBasarili={() => setGirisYapildi(true)} />;
+  }
 
   return (
     <div style={styles.anaEkranKonteyner}>
