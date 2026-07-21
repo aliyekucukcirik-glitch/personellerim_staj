@@ -2,7 +2,14 @@ import React from 'react';
 import styles from './ProfilMenusu.module.css';
 import { User, Settings, Bell, Lock, LogOut } from 'lucide-react';
 
-export default function ProfilMenusu({ acikMi, kapat, onProfilBilgileriAc, onAyarlarAc, onBildirimlerAc }) {
+export default function ProfilMenusu({ 
+  acikMi, 
+  kapat, 
+  onProfilBilgileriAc, 
+  onAyarlarAc, 
+  onBildirimlerAc,
+  onSifreDegistirAc 
+}) {
   if (!acikMi) return null;
 
   return (
@@ -39,7 +46,10 @@ export default function ProfilMenusu({ acikMi, kapat, onProfilBilgileriAc, onAya
         </button>
 
         {/* 4. Şifre Değiştir */}
-        <button className={`${styles.baloncukEleman} ${styles.esitBaloncuk}`}>
+        <button 
+          className={`${styles.baloncukEleman} ${styles.esitBaloncuk}`}
+          onClick={onSifreDegistirAc}
+        >
           <Lock color="#64748B" size={20} strokeWidth={2} />
           <span className={styles.yazi}>Şifre Değiştir</span>
         </button>

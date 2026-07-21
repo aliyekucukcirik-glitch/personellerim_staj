@@ -8,12 +8,20 @@ import ProfilMenusu from './components/ProfilMenusu/ProfilMenusu.jsx';
 import ProfilBilgileri from './components/ProfilMenusu/ProfilBilgileri.jsx';
 import Ayarlar from './components/ProfilMenusu/Ayarlar.jsx';
 import Bildirimler from './components/ProfilMenusu/Bildirimler.jsx';
+import SifreDegistir from './components/ProfilMenusu/SifreDegistir.jsx';
 
 export default function App() {
   const [profilAcik, setProfilAcik] = useState(false);
   const [profilBilgileriAcik, setProfilBilgileriAcik] = useState(false);
   const [ayarlarAcik, setAyarlarAcik] = useState(false);
   const [bildirimlerAcik, setBildirimlerAcik] = useState(false);
+  const [sifreDegistirAcik, setSifreDegistirAcik] = useState(false);
+
+  const handleSifreGuncellendi = () => {
+    setSifreDegistirAcik(false);
+    alert('Şifreniz başarıyla değiştirildi! Giriş sayfasına yönlendiriliyorsunuz.');
+    // Giriş ekranı bileşeni yapıldığında buraya yönlendirme state'i gelecek
+  };
 
   return (
     <div style={styles.anaEkranKonteyner}>
@@ -32,6 +40,10 @@ export default function App() {
           setProfilAcik(false);
           setBildirimlerAcik(true);
         }}
+        onSifreDegistirAc={() => {
+          setProfilAcik(false);
+          setSifreDegistirAcik(true);
+        }}
       />
         <ProfilBilgileri 
         acikMi={profilBilgileriAcik} 
@@ -44,6 +56,11 @@ export default function App() {
         <Bildirimler 
         acikMi={bildirimlerAcik} 
         kapat={() => setBildirimlerAcik(false)} 
+      />
+      <SifreDegistir 
+        acikMi={sifreDegistirAcik} 
+        kapat={() => setSifreDegistirAcik(false)} 
+        onSifreGuncellendi={handleSifreGuncellendi}
       />
 
       <div style={styles.icerikAlani}>
