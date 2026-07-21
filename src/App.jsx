@@ -5,15 +5,25 @@ import İzinDurumuÖzeti from './components/İzinDurumuÖzeti.jsx';
 import AvansBilgileri from './components/AvansBilgileri.jsx';
 import AltBar from './components/AltBar.jsx';
 import ProfilMenusu from './components/ProfilMenusu/ProfilMenusu.jsx';
+import ProfilBilgileri from './components/ProfilMenusu/ProfilBilgileri.jsx';
 
 export default function App() {
   const [profilAcik, setProfilAcik] = useState(false);
+  const [profilBilgileriAcik, setProfilBilgileriAcik] = useState(false);
 
   return (
     <div style={styles.anaEkranKonteyner}>
       <ProfilMenusu 
         acikMi={profilAcik} 
         kapat={() => setProfilAcik(false)} 
+        onProfilBilgileriAc={() => {
+          setProfilAcik(false);
+          setProfilBilgileriAcik(true);
+        }}
+      />
+        <ProfilBilgileri 
+        acikMi={profilBilgileriAcik} 
+        kapat={() => setProfilBilgileriAcik(false)} 
       />
 
       <div style={styles.icerikAlani}>

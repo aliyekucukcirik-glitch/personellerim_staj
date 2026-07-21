@@ -17,7 +17,7 @@
   }
 }
 
-/* 🌟 Dış Kapsayıcı - Ekranın en soluna yaslı 🌟 */
+
 .baloncukGrubu {
   position: absolute;
   bottom: 120px; /* Alt barın biraz üzerinde */
@@ -29,7 +29,7 @@
   z-index: 201;
 }
 
-/* 🌟 Genel Buton Yapısı 🌟 */
+/* Genel Buton Yapısı  */
 .baloncukEleman {
   display: flex;
   align-items: center;
@@ -58,13 +58,13 @@
 .baloncukEleman:nth-child(3) { animation-delay: 0.11s; }
 .baloncukEleman:nth-child(4) { animation-delay: 0.15s; }
 
-/* 🌟 1. PROFİL BİLGİLERİ (En Büyük ve En Uzun) 🌟 */
+/*  1. PROFİL BİLGİLERİ  */
 .profilAnaBaloncuk {
   padding: 12px 24px 12px 14px;
   min-width: 250px; /* En uzun durmasını sağlar */
 }
 
-/* Sadece Profil Bilgileri Butonunda Olan Mor İkon Kutusu */
+
 .profilIkonKutusu {
   width: 36px;
   height: 36px;
@@ -76,7 +76,7 @@
   flex-shrink: 0;
 }
 
-/* 🌟 DİĞER 3 BUTON (Birbiriyle Birebir Eşit Genişlikte ve Arkalarında Kart YOK) 🌟 */
+/* DİĞER 3 BUTON  */
 .esitBaloncuk {
   padding: 12px 20px;
   width: 200px; /* Üçünün genişliği eşit yapıldı */
@@ -91,9 +91,9 @@
   white-space: nowrap;
 }
 
-/* 🌟 4. OTURUMU KAPAT (Arka Plan Pembe/Kırmızı) 🌟 */
+/* 4. OTURUMU KAPAT  */
 .cikisBaloncuk {
-  background-color: #fae7e7; /* Düz beyaz değil, hafif kırmızı/pembe */
+  background-color: #fae7e7; 
 }
 
 .cikisYazi {
