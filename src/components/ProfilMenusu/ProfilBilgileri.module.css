@@ -1,181 +1,102 @@
-/* Tum ekrani kaplayan ana konteyner */
-.tamSayfaKonteyner {
+/* Arka plan karartma */
+.karartmaKatmani {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #f6f5fb; 
-  z-index: 500;
-  display: flex;
-  flex-direction: column;
-  padding: 20px 24px;
-  box-sizing: border-box;
-  overflow-y: auto;
-  
-  transform: translateY(100%);
-  animation: sayfayaGiris 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  background-color: rgba(15, 23, 42, 0.35);
+  z-index: 200;
+  opacity: 0;
+  animation: kararmaAcilis 0.2s ease-out forwards;
 }
 
-@keyframes sayfayaGiris {
+@keyframes kararmaAcilis {
   to {
-    transform: translateY(0);
+    opacity: 1;
   }
 }
 
-/* Üst Başlık Hizalaması */
-.ustBar {
+.baloncukGrubu {
+  position: absolute;
+  bottom: 95px; /* Alt barın tam üzerinde hizalı */
+  left: 12px;   /* Ekranın soluna tam yaslı */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px; 
+  z-index: 201;
+}
+
+/* Genel Buton Yapısı */
+.baloncukEleman {
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  margin-bottom: 24px;
-  padding-top: 12px;
-}
-
-.baslikYazi {
-  font-size: 17px;
-  font-weight: 800;
-  color: #1e1b4b;
-  letter-spacing: 0.6px;
-}
-
-.kapatButon {
-  position: absolute;
-  right: 0;
-  background: transparent;
+  gap: 12px;
+  background-color: #ffffff;
+  border-radius: 18px;
   border: none;
   cursor: pointer;
-  color: #1e1b4b;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+  
+  /* Sıralı Animasyon */
+  opacity: 0;
+  transform: translateY(16px) scale(0.95);
+  animation: baloncukAcilis 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes baloncukAcilis {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+.baloncukEleman:nth-child(1) { animation-delay: 0.02s; }
+.baloncukEleman:nth-child(2) { animation-delay: 0.05s; }
+.baloncukEleman:nth-child(3) { animation-delay: 0.08s; }
+.baloncukEleman:nth-child(4) { animation-delay: 0.11s; }
+.baloncukEleman:nth-child(5) { animation-delay: 0.14s; }
+
+/* 1. PROFİL BİLGİLERİ  */
+.profilAnaBaloncuk {
+  padding: 12px 24px 12px 14px;
+  min-width: 250px;
+}
+
+.profilIkonKutusu {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #A855F7 0%, #6D28D9 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4px;
-}
-
-
-.icerikAlani {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  max-width: 440px; /* Ekranlarda daha dolgun ve büyük durur */
-  margin: 0 auto;
-}
-
-
-.profilKart {
-  background-color: #ffffff;
-  border-radius: 32px;
-  padding: 28px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 25px rgba(109, 40, 217, 0.03);
-}
-
-.avatarKonteyner {
-  position: relative;
-  margin-bottom: 14px;
-}
-
-.avatarDaire {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #e2e8f0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.kameraRozet {
-  position: absolute;
-  bottom: 2px;
-  right: 2px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-}
-
-.kullaniciAdi {
-  font-size: 20px;
-  font-weight: 800;
-  color: #1e1b4b;
-  margin-bottom: 6px;
-}
-
-.idRozet {
-  background-color: #f3e8ff;
-  color: #8b5cf6;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 5px 14px;
-  border-radius: 14px;
-}
-
-/* 2. KART: İletişim Bilgileri */
-.bilgiKart {
-  background-color: #ffffff;
-  border-radius: 28px;
-  padding: 24px 28px; /* Sol ve sağ iç boşluk artırıldı */
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  box-shadow: 0 4px 25px rgba(109, 40, 217, 0.03);
-}
-
-/* 3. KART: Departman ve Pozisyon Kartı */
-.departmanKart {
-  background-color: #ffffff;
-  border-radius: 28px;
-  padding: 24px 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  box-shadow: 0 4px 25px rgba(109, 40, 217, 0.03);
-}
-
-
-.blok {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Etiketi sola hizalar */
-  gap: 8px;
-  width: 100%;
-}
-
-.satir {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; /* İçerikleri sola hizalar */
-  gap: 16px;
-  width: 100%;
-}
-
-.ikon {
-  color: #8b5cf6;
   flex-shrink: 0;
 }
 
-.etiket {
-  font-size: 11px;
-  font-weight: 700;
-  color: #a0aec0;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-  text-align: left;
+/* DİĞER 4 BUTON  */
+.esitBaloncuk {
+  padding: 12px 20px;
+  width: 200px;
+  box-sizing: border-box;
 }
 
-.degerYazi {
-  font-size: 15px;
+/* YAZI DÜZENİ */
+.yazi {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #1E1B4B;
+  white-space: nowrap;
+}
+
+/* 5. OTURUMU KAPAT */
+.cikisBaloncuk {
+  background-color: #fae7e7; 
+}
+
+.cikisYazi {
+  color: #EF4444;
   font-weight: 700;
-  color: #1e1b4b;
-  text-align: left;
 }

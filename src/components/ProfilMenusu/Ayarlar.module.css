@@ -1,4 +1,4 @@
-/* Tam Ekran Konteyner */
+/* Ana Sayfa Konteynırı */
 .tamSayfaKonteyner {
   position: fixed;
   top: 0;
@@ -12,9 +12,14 @@
   padding: 20px 24px;
   box-sizing: border-box;
   overflow-y: auto;
+  transition: background-color 0.3s ease, color 0.3s ease;
   
   transform: translateY(100%);
   animation: sayfayaGiris 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.koyuTema {
+  background-color: #0b1120;
 }
 
 @keyframes sayfayaGiris {
@@ -40,6 +45,10 @@
   letter-spacing: 0.6px;
 }
 
+.koyuTema .baslikYazi {
+  color: #ffffff;
+}
+
 .kapatButon {
   position: absolute;
   right: 0;
@@ -53,7 +62,11 @@
   padding: 4px;
 }
 
-/* İçerik Alanı */
+.koyuTema .kapatButon {
+  color: #ffffff;
+}
+
+/* İçerik Hizalaması */
 .icerikAlani {
   display: flex;
   flex-direction: column;
@@ -63,33 +76,56 @@
   margin: 0 auto;
 }
 
-/* 🌟 1. KART: TEMA VE DİL KARTI (Arka Planda Dalga Efektli) 🌟 */
-.temaKart {
+/* 🌟 1. KART: GRADIENT ÇERÇEVELİ TEMA KARTI 🌟 */
+.gradientCerceveKutu {
   position: relative;
-  background-color: #ffffff;
   border-radius: 28px;
-  padding: 24px;
-  border: 1.5px solid #e9d5ff;
-  box-shadow: 0 4px 25px rgba(109, 40, 217, 0.05);
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  overflow: hidden; /* Dalganın dışarı taşmasını engeller */
+  padding: 1.5px;
+  background: linear-gradient(135deg, #a855f7 0%, #c084fc 50%, #7c3aed 100%);
+  box-shadow: 0 8px 30px rgba(168, 85, 247, 0.12);
 }
 
-/* Dalga SVG Arka Planı */
+.temaKartIcerik {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 26.5px;
+  padding: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.koyuTema .temaKartIcerik {
+  background-color: #151d30;
+}
+
+/* Dalga Çizgileri */
 .dalgaArkaPlan {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 50%;
+  left: 0;
+  transform: translateY(-65%);
   width: 100%;
-  height: 100%;
+  height: 110px;
   pointer-events: none;
-  opacity: 0.55;
   z-index: 1;
 }
 
-.temaIcerik {
+.dalgaCizgi {
+  stroke: #c084fc;
+  stroke-width: 1.2;
+  stroke-opacity: 0.22;
+  fill: none;
+}
+
+.koyuTema .dalgaCizgi {
+  stroke: #a855f7;
+  stroke-opacity: 0.18;
+}
+
+.temaIcerikÖn {
   position: relative;
   z-index: 2;
   display: flex;
@@ -105,17 +141,21 @@
   text-transform: uppercase;
 }
 
+.koyuTema .etiket {
+  color: #64748b;
+}
+
 /* Radio Seçenekleri */
 .radioGrubu {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .radioSatir {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   cursor: pointer;
   background: transparent;
   border: none;
@@ -134,15 +174,19 @@
   transition: all 0.2s ease;
 }
 
+.koyuTema .radioHalka {
+  border-color: #334155;
+}
+
 .radioHalkaSecili {
-  border-color: #8b5cf6;
+  border-color: #a855f7 !important;
 }
 
 .radioNokta {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #8b5cf6;
+  background: linear-gradient(135deg, #a855f7 0%, #6d28d9 100%);
 }
 
 .radioYazi {
@@ -151,7 +195,7 @@
   color: #94a3b8;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   transition: color 0.2s ease;
 }
 
@@ -159,13 +203,28 @@
   color: #8b5cf6;
 }
 
-/* Dil Değiştirme Satırı */
+.koyuTema .radioYaziSecili {
+  color: #c084fc;
+}
+
+.solanCizgi {
+  width: 100%;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent 0%, #c084fc 35%, #a855f7 50%, #c084fc 65%, transparent 100%);
+  margin: 12px 0;
+  display: block;
+}
+
+.koyuTema .solanCizgi {
+  background: linear-gradient(90deg, rgba(51, 65, 85, 0) 0%, rgba(168, 85, 247, 0.4) 50%, rgba(51, 65, 85, 0) 100%);
+}
+
+/* Dil Seçimi Satırı */
 .dilSatir {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 10px;
-  border-top: 1px dashed #f1f5f9;
+  padding-top: 4px;
 }
 
 .dilSol {
@@ -177,12 +236,20 @@
   color: #1e1b4b;
 }
 
+.koyuTema .dilSol {
+  color: #ffffff;
+}
+
 .dilKutusu {
   display: flex;
   background-color: #f1f5f9;
   padding: 3px;
   border-radius: 12px;
   gap: 2px;
+}
+
+.koyuTema .dilKutusu {
+  background-color: #0f172a;
 }
 
 .dilButon {
@@ -198,19 +265,24 @@
 }
 
 .dilButonAktif {
-  background-color: #ffffff;
-  color: #8b5cf6;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  background: linear-gradient(135deg, #a855f7 0%, #6d28d9 100%);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.3);
 }
 
-/* 🌟 2. KART: TOGGLE/SWITCH AYARLARI KARTI 🌟 */
+/* 🌟 2. KART: TOGGLE AYARLARI KARTI 🌟 */
 .ayarlarKart {
   background-color: #ffffff;
   border-radius: 28px;
-  padding: 20px 24px;
+  padding: 16px 24px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 25px rgba(109, 40, 217, 0.03);
+  transition: background-color 0.3s ease;
+}
+
+.koyuTema .ayarlarKart {
+  background-color: #151d30;
 }
 
 .ayarsatir {
@@ -221,7 +293,11 @@
 }
 
 .ayarsatir:not(:last-child) {
-  border-bottom: 1.5px dashed #f1f5f9;
+  border-bottom: 1.5px dashed #e2e8f0;
+}
+
+.koyuTema .ayarsatir:not(:last-child) {
+  border-bottom: 1.5px dashed #1e293b;
 }
 
 .ayarSol {
@@ -236,16 +312,25 @@
   flex-shrink: 0;
 }
 
+.koyuTema .ayarIkon {
+  color: #c084fc;
+}
+
 .ayarMetin {
   display: flex;
   flex-direction: column;
   gap: 3px;
+  text-align: left;
 }
 
 .ayarBaslik {
   font-size: 15px;
   font-weight: 700;
   color: #1e1b4b;
+}
+
+.koyuTema .ayarBaslik {
+  color: #ffffff;
 }
 
 .ayarAciklama {
@@ -255,7 +340,11 @@
   line-height: 1.35;
 }
 
-/* 🌟 ÇALIŞAN TOGGLE / SWITCH BİLEŞENİ 🌟 */
+.koyuTema .ayarAciklama {
+  color: #64748b;
+}
+
+/* TOGGLE / SWITCH */
 .toggleSwitch {
   width: 48px;
   height: 26px;
@@ -269,8 +358,12 @@
   flex-shrink: 0;
 }
 
+.koyuTema .toggleSwitch {
+  background-color: #334155;
+}
+
 .toggleSwitchAcik {
-  background-color: #8b5cf6;
+  background: linear-gradient(135deg, #a855f7 0%, #6d28d9 100%) !important;
 }
 
 .toggleNokta {
