@@ -76,7 +76,7 @@
   margin: 0 auto;
 }
 
-/* 🌟 1. KART: GRADIENT ÇERÇEVELİ TEMA KARTI 🌟 */
+
 .gradientCerceveKutu {
   position: relative;
   border-radius: 28px;
@@ -270,7 +270,7 @@
   box-shadow: 0 2px 8px rgba(168, 85, 247, 0.3);
 }
 
-/* 🌟 2. KART: TOGGLE AYARLARI KARTI 🌟 */
+/*  2. KART: TOGGLE AYARLARI KARTI  */
 .ayarlarKart {
   background-color: #ffffff;
   border-radius: 28px;

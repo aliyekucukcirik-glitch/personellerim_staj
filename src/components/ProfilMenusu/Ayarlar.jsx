@@ -86,16 +86,16 @@ export default function Ayarlar({ acikMi, kapat }) {
               </div>
 
              {/* Uygulama Dili Üzerindeki Kesin Görünür Mor Çizgi */}
-<div 
-  style={{
-    width: '100%',
-    height: '1.5px',
-    background: 'linear-gradient(90deg, transparent 0%, #c084fc 35%, #a855f7 50%, #c084fc 65%, transparent 100%)',
-    margin: '12px 0',
-    display: 'block',
-    opacity: 0.8
-  }} 
-/>
+                 <div 
+                   style={{
+                     width: '100%',
+                     height: '1.5px',
+                     background: 'linear-gradient(90deg, transparent 0%, #c084fc 35%, #a855f7 50%, #c084fc 65%, transparent 100%)',
+                     margin: '12px 0',
+                     display: 'block',
+                     opacity: 0.8
+                     }} 
+                    />
 
               {/* Uygulama Dili */}
               <div className={styles.dilSatir}>
