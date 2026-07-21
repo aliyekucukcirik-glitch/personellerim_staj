@@ -1,0 +1,95 @@
+/* Arka planı karartan katman (Overlay) */
+.karartmaKatmani {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 23, 42, 0.4);
+  z-index: 200;
+  opacity: 0;
+  animation: kararmaAcilis 0.2s ease-out forwards;
+}
+
+@keyframes kararmaAcilis {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Popup Kartı  */
+.popupKonteyner {
+  position: absolute;
+  bottom: 85px; /* Alt barın hemen üstünde durur */
+  left: 20px;
+  width: 250px;
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 8px;
+  box-sizing: border-box;
+  box-shadow: 0 15px 35px rgba(109, 40, 217, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  
+  transform: translateY(15px);
+  opacity: 0;
+  animation: yukariSuzul 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes yukariSuzul {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Menüdeki Her Bir Satır */
+.menuElemani {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.menuElemani:hover {
+  background-color: #f8f7fc;
+}
+
+/* Sol İkon Kutusunun Yuvarlak Zeminleri */
+.ikonKutusu {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background-color: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Profil Bilgileri Butonu */
+.profilAktifKutu {
+  background: linear-gradient(135deg, #a855f7 0%, #6d28d9 100%);
+}
+
+.yazi {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e1b4b;
+}
+
+/* Oturumu Kapat Alanı */
+.cikisYazi {
+  color: #ef4444;
+}
+
+.cikisKutusu {
+  background-color: #fef2f2;
+}
