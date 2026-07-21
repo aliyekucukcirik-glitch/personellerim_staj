@@ -7,11 +7,13 @@ import AltBar from './components/AltBar.jsx';
 import ProfilMenusu from './components/ProfilMenusu/ProfilMenusu.jsx';
 import ProfilBilgileri from './components/ProfilMenusu/ProfilBilgileri.jsx';
 import Ayarlar from './components/ProfilMenusu/Ayarlar.jsx';
+import Bildirimler from './components/ProfilMenusu/Bildirimler.jsx';
 
 export default function App() {
   const [profilAcik, setProfilAcik] = useState(false);
   const [profilBilgileriAcik, setProfilBilgileriAcik] = useState(false);
   const [ayarlarAcik, setAyarlarAcik] = useState(false);
+  const [bildirimlerAcik, setBildirimlerAcik] = useState(false);
 
   return (
     <div style={styles.anaEkranKonteyner}>
@@ -26,6 +28,10 @@ export default function App() {
           setProfilAcik(false);
           setAyarlarAcik(true);
         }}
+        onBildirimlerAc={() => {
+          setProfilAcik(false);
+          setBildirimlerAcik(true);
+        }}
       />
         <ProfilBilgileri 
         acikMi={profilBilgileriAcik} 
@@ -35,9 +41,13 @@ export default function App() {
         acikMi={ayarlarAcik} 
         kapat={() => setAyarlarAcik(false)} 
       />
+        <Bildirimler 
+        acikMi={bildirimlerAcik} 
+        kapat={() => setBildirimlerAcik(false)} 
+      />
 
       <div style={styles.icerikAlani}>
-        <ÜstBar />
+        <ÜstBar onBildirimTikla={() => setBildirimlerAcik(true)} />
         <HoşGeldinizKartı />
         <İzinDurumuÖzeti />
         <AvansBilgileri />

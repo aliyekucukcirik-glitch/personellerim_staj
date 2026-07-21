@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './ProfilMenusu.module.css';
 import { User, Settings, Bell, Lock, LogOut } from 'lucide-react';
 
-export default function ProfilMenusu({ acikMi, kapat, onProfilBilgileriAc, onAyarlarAc }) {
+export default function ProfilMenusu({ acikMi, kapat, onProfilBilgileriAc, onAyarlarAc, onBildirimlerAc }) {
   if (!acikMi) return null;
 
   return (
@@ -30,7 +30,10 @@ export default function ProfilMenusu({ acikMi, kapat, onProfilBilgileriAc, onAya
         </button>
 
         {/* 3. Bildirim Tercihleri */}
-        <button className={`${styles.baloncukEleman} ${styles.esitBaloncuk}`}>
+        <button 
+          className={`${styles.baloncukEleman} ${styles.esitBaloncuk}`}
+          onClick={onBildirimlerAc}
+        >
           <Bell color="#64748B" size={20} strokeWidth={2} />
           <span className={styles.yazi}>Bildirim Tercihleri</span>
         </button>
