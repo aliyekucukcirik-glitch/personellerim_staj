@@ -24,6 +24,11 @@ export default function App() {
     setSifreDegistirAcik(false);
     setGirisYapildi(false);
   };
+  // Oturumu kapat butonuna basılınca çalışan fonksiyon
+  const handleOturumuKapat = () => {
+    setProfilAcik(false);
+    setGirisYapildi(false);
+  };
 
   // Eğer giriş yapılmamışsa Giriş Ekranı gösterilir
   if (!girisYapildi) {
@@ -51,6 +56,7 @@ export default function App() {
           setProfilAcik(false);
           setSifreDegistirAcik(true);
         }}
+        onOturumuKapat={handleOturumuKapat}
       />
         <ProfilBilgileri 
         acikMi={profilBilgileriAcik} 

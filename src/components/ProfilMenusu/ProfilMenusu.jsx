@@ -8,7 +8,8 @@ export default function ProfilMenusu({
   onProfilBilgileriAc, 
   onAyarlarAc, 
   onBildirimlerAc,
-  onSifreDegistirAc 
+  onSifreDegistirAc,
+  onOturumuKapat 
 }) {
   if (!acikMi) return null;
 
@@ -55,7 +56,11 @@ export default function ProfilMenusu({
         </button>
 
         {/* 5. Oturumu Kapat */}
-        <button className={`${styles.baloncukEleman} ${styles.esitBaloncuk} ${styles.cikisBaloncuk}`}>
+        {/* Tıklama olayını buraya bağladık */}
+        <button 
+          className={`${styles.baloncukEleman} ${styles.esitBaloncuk} ${styles.cikisBaloncuk}`}
+          onClick={onOturumuKapat}
+        >
           <LogOut color="#EF4444" size={20} strokeWidth={2} />
           <span className={`${styles.yazi} ${styles.cikisYazi}`}>Oturumu Kapat</span>
         </button>
