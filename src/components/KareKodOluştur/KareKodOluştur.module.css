@@ -1,0 +1,398 @@
+.tamSayfaKonteyner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f6f5fb;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  transform: translateY(100%);
+  animation: sayfayaGiris 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes sayfayaGiris {
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Üst Bar */
+.ustBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 16px;
+  padding-top: 8px;
+}
+
+.baslikYazi {
+  font-size: 17px;
+  font-weight: 800;
+  color: #1e1b4b;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.kapatButon {
+  position: absolute;
+  right: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #1e1b4b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+/* İçerik Hizalama */
+.icerikAlani {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Konum Bilgi Kartı */
+.konumKart {
+  align-self: flex-end;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  margin-bottom: 24px;
+  border: 1px solid #f1f5f9;
+}
+
+.konumIkon {
+  color: #64748B;
+  margin-top: 2px;
+}
+
+.konumDetay {
+  display: flex;
+  flex-direction: column;
+}
+
+.konumBaslik {
+  font-size: 13px;
+  font-weight: 800;
+  color: #1e1b4b;
+}
+
+.konumAlt {
+  font-size: 11px;
+  font-weight: 600;
+  color: #94a3b8;
+  line-height: 1.3;
+}
+
+/* QR KUTULARI ALANI VE ÇİZGİ */
+.qrAlani {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+/* İki Kartı Bağlayan Çizgi */
+.baglantiCizgisi {
+  position: absolute;
+  top: 100px;
+  left: 32%;
+  width: 2px;
+  height: 160px;
+  background-color: #2dd4bf;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+/* QR Kart Ortak Stiller */
+.qrKart {
+  width: 200px;
+  height: 200px;
+  background: #ffffff;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 2;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.qrKart:hover {
+  transform: scale(1.03);
+}
+
+/* Yeşil Glow (Giriş) */
+.yesilKart {
+  align-self: flex-start;
+  margin-left: 10px;
+  border: 2px solid #34d399;
+  box-shadow: 0 0 25px rgba(52, 211, 153, 0.45);
+}
+
+/* Kırmızı Glow (Çıkış) */
+.kirmiziKart {
+  align-self: flex-end;
+  margin-right: 10px;
+  border: 2px solid #f87171;
+  box-shadow: 0 0 25px rgba(248, 113, 113, 0.45);
+}
+
+.qrGorsel {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: blur(1.5px); /* Ana ekrandaki flu görünüm */
+}
+
+.dokunIkon {
+  position: absolute;
+  z-index: 3;
+}
+
+/* Alt Uyarı Metni */
+.altUyari {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.uyariIkon {
+  color: #8b5cf6;
+}
+
+.uyariYazi {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e1b4b;
+}
+
+/* POP-UP (MODAL) VE ARKA PLAN BUĞUSU */
+.modalKarartma {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(30, 27, 75, 0.35);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  animation: acilisFade 0.2s ease forwards;
+}
+
+@keyframes acilisFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modalKart {
+  width: 100%;
+  max-width: 340px;
+  background: #ffffff;
+  border-radius: 32px;
+  padding: 24px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: modalOlcek 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalOlcek {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modalYesilBorder {
+  border: 2.5px solid #34d399;
+  box-shadow: 0 0 30px rgba(52, 211, 153, 0.4);
+}
+
+.modalKirmiziBorder {
+  border: 2.5px solid #f87171;
+  box-shadow: 0 0 30px rgba(248, 113, 113, 0.4);
+}
+
+.modalKapat {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #64748b;
+}
+
+.modalBaslikTekst {
+  font-size: 15px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.yesilYazi { color: #10b981; }
+.kirmiziYazi { color: #ef4444; }
+
+.modalQrNet {
+  width: 190px;
+  height: 190px;
+  object-fit: contain;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.sureEtiket {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+/* Sayaç Kapsülü */
+.sayacKapsul {
+  border-radius: 20px;
+  padding: 6px 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.yesilSayac {
+  border: 1.5px solid #10b981;
+}
+
+.kirmiziSayac {
+  border: 1.5px solid #ef4444;
+}
+
+.sayacRakam {
+  font-size: 20px;
+  font-weight: 900;
+  color: #1e1b4b;
+}
+
+.sayacMetin {
+  font-size: 13px;
+  font-weight: 700;
+  color: #64748b;
+}
+
+/* Modal Konum Kutucuğu */
+.modalKonumKutu {
+  width: 100%;
+  border-radius: 16px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.yesilKonumBg {
+  background-color: #ecfdf5;
+  color: #047857;
+}
+
+.kirmiziKonumBg {
+  background-color: #fef2f2;
+  color: #b91c1c;
+}
+
+.modalAltBilgi {
+  font-size: 11px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-align: center;
+  line-height: 1.35;
+}
+
+/* BAŞARILI SONUÇ KARTLARI */
+.basariKart {
+  width: 100%;
+  border-radius: 24px;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+  margin-top: 20px;
+  margin-bottom: 16px;
+}
+
+.yesilGradient {
+  background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+}
+
+.kirmiziGradient {
+  background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
+}
+
+.tikDaire {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.basariAnaBaslik {
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 4px;
+}
+
+.basariSaat {
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.altSonucBilgi {
+  width: 100%;
+  background-color: #f8fafc;
+  border-radius: 16px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #1e1b4b;
+  box-sizing: border-box;
+}
