@@ -12,6 +12,7 @@ import SifreDegistir from './components/ProfilMenusu/SifreDegistir.jsx';
 import GirisEkrani from './components/GirisEkrani/GirisEkrani.jsx';
 import YukleniyorEkrani from './components/YukleniyorEkrani/YukleniyorEkrani.jsx';
 import KareKodOluştur from './components/KareKodOluştur/KareKodOluştur.jsx';
+import KareKodOkut from './components/KareKodOkut/KareKodOkut.jsx';
 
 export default function App() {
   const [yukleniyor, setYukleniyor] = useState(true);
@@ -22,6 +23,7 @@ export default function App() {
   const [bildirimlerAcik, setBildirimlerAcik] = useState(false);
   const [sifreDegistirAcik, setSifreDegistirAcik] = useState(false);
   const [kareKodAcik, setKareKodAcik] = useState(false);
+  const [kareKodOkutAcik, setKareKodOkutAcik] = useState(false);
 
   // Sayfa yükleniyor ekranı zamanlayıcı
   useEffect(() => {
@@ -96,6 +98,10 @@ export default function App() {
         acikMi={kareKodAcik} 
         kapat={() => setKareKodAcik(false)} 
       />
+      <KareKodOkut 
+        acikMi={kareKodOkutAcik} 
+        kapat={() => setKareKodOkutAcik(false)} 
+      />
 
       <div style={styles.icerikAlani}>
         <ÜstBar onBildirimTikla={() => setBildirimlerAcik(true)} />
@@ -108,6 +114,7 @@ export default function App() {
         profilAcik={profilAcik} 
         onProfilTikla={() => setProfilAcik(!profilAcik)}
         onQrTikla={() => setKareKodAcik(true)}
+        onQrTaraTikla={() => setKareKodOkutAcik(true)}
       />
     </div>
   );

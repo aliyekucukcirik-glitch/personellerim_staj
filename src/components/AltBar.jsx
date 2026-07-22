@@ -2,8 +2,7 @@ import React from 'react';
 import styles from './AltBar.module.css';
 import { User, QrCode, ScanLine, MapPin } from 'lucide-react';
 
-// 🌟 Parametrelere onQrTikla eklendi
-export default function AltBar({ profilAcik, onProfilTikla, onQrTikla }) {
+export default function AltBar({ profilAcik, onProfilTikla, onQrTikla, onQrTaraTikla }) {
   return (
     <div className={styles.altBarSarmaKonteyner}>
       <div className={styles.altBarKonteyner}>
@@ -21,7 +20,6 @@ export default function AltBar({ profilAcik, onProfilTikla, onQrTikla }) {
         </div>
 
         {/* 2. QR Oluştur Butonu */}
-        {/* 🌟 Tıklama olayı (onClick) ve imleç stili eklendi */}
         <div 
           className={styles.morButonGrup}
           onClick={onQrTikla}
@@ -33,8 +31,12 @@ export default function AltBar({ profilAcik, onProfilTikla, onQrTikla }) {
           <span className={styles.yazi}>QR Oluştur</span>
         </div>
 
-        {/* 3. QR Tara Butonu */}
-        <div className={styles.morButonGrup}>
+        {/* 3. QR Tara Butonu (onClick Tıklama Olayı Bağlandı) */}
+        <div 
+          className={styles.morButonGrup}
+          onClick={onQrTaraTikla}
+          style={{ cursor: 'pointer' }}
+        >
           <div className={styles.morButon}>
             <ScanLine color="#FFFFFF" size={24} strokeWidth={2} />
           </div>
