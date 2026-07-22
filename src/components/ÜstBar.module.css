@@ -50,7 +50,6 @@
   transform: scale(1.15); 
 }
 
-
 .bildirimNoktaDis {
   position: absolute;
   top: 1px;
@@ -58,7 +57,7 @@
   width: 11px;
   height: 11px;
   border-radius: 50%;
-  background-color: #000000;
+  background-color: #ffffff;
   z-index: 1;
 }
 
@@ -69,6 +68,6 @@
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background-color: rgb(255, 87, 34);
+  background-color: #EF4444;
   z-index: 2;
 }

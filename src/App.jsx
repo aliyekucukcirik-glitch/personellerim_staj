@@ -14,6 +14,7 @@ import YukleniyorEkrani from './components/YukleniyorEkrani/YukleniyorEkrani.jsx
 import KareKodOluştur from './components/KareKodOluştur/KareKodOluştur.jsx';
 import KareKodOkut from './components/KareKodOkut/KareKodOkut.jsx';
 import KonumIci from './components/KonumIci/KonumIci.jsx';
+import YanMenu from './components/YanMenu/YanMenu.jsx';
 
 export default function App() {
   const [yukleniyor, setYukleniyor] = useState(true);
@@ -26,6 +27,7 @@ export default function App() {
   const [kareKodAcik, setKareKodAcik] = useState(false);
   const [kareKodOkutAcik, setKareKodOkutAcik] = useState(false);
   const [konumIciAcik, setKonumIciAcik] = useState(false);
+  const [yanMenuAcik, setYanMenuAcik] = useState(false);
 
   // Sayfa yükleniyor ekranı zamanlayıcı
   useEffect(() => {
@@ -36,11 +38,12 @@ export default function App() {
     return () => clearTimeout(zamanlayici);
   }, []);
 
- // Şifre güncellendiğinde veya Oturumu Kapat'a basıldığında giriş ekranına yönlendirir
+  // Şifre güncellendiğinde veya Oturumu Kapat'a basıldığında giriş ekranına yönlendirir
   const handleSifreGuncellendi = () => {
     setSifreDegistirAcik(false);
     setGirisYapildi(false);
   };
+
   // Oturumu kapat butonuna basılınca çalışan fonksiyon
   const handleOturumuKapat = () => {
     setProfilAcik(false);
@@ -79,38 +82,54 @@ export default function App() {
         }}
         onOturumuKapat={handleOturumuKapat}
       />
-        <ProfilBilgileri 
+      
+      <ProfilBilgileri 
         acikMi={profilBilgileriAcik} 
         kapat={() => setProfilBilgileriAcik(false)} 
       />
-        <Ayarlar 
+      
+      <Ayarlar 
         acikMi={ayarlarAcik} 
         kapat={() => setAyarlarAcik(false)} 
       />
-        <Bildirimler 
+      
+      <Bildirimler 
         acikMi={bildirimlerAcik} 
         kapat={() => setBildirimlerAcik(false)} 
       />
+      
       <SifreDegistir 
         acikMi={sifreDegistirAcik} 
         kapat={() => setSifreDegistirAcik(false)} 
         onSifreGuncellendi={handleSifreGuncellendi}
       />
+      
       <KareKodOluştur 
         acikMi={kareKodAcik} 
         kapat={() => setKareKodAcik(false)} 
       />
+      
       <KareKodOkut 
         acikMi={kareKodOkutAcik} 
         kapat={() => setKareKodOkutAcik(false)} 
       />
+      
       <KonumIci 
         acikMi={konumIciAcik} 
         kapat={() => setKonumIciAcik(false)} 
       />
+      
+      <YanMenu 
+        acikMi={yanMenuAcik} 
+        kapat={() => setYanMenuAcik(false)}
+        onOturumuKapat={handleOturumuKapat} 
+      />
 
       <div style={styles.icerikAlani}>
-        <ÜstBar onBildirimTikla={() => setBildirimlerAcik(true)} />
+        <ÜstBar 
+          onMenuTikla={() => setYanMenuAcik(true)} 
+          onBildirimTikla={() => setBildirimlerAcik(true)} 
+        />
         <HoşGeldinizKartı />
         <İzinDurumuÖzeti />
         <AvansBilgileri />

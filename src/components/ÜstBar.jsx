@@ -2,47 +2,25 @@ import React from 'react';
 import { Menu, Bell } from 'lucide-react';
 import styles from './ÜstBar.module.css';
 
-export default function ÜstBar({ onBildirimTikla }) {
+export default function ÜstBar({ onMenuTikla, onBildirimTikla }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px' }}>
+    <div className={styles.ustBarKonteyner}>
       {/* Sol Menü Butonu */}
-      <button style={{ background: 'transparent', border: 'none', cursor: 'pointer', padding: 0 }}>
+      <button className={styles.buton} onClick={onMenuTikla}>
         <Menu size={24} color="#1E1B4B" />
       </button>
 
-      {/* Başlık */}
-      <span style={{ fontWeight: 800, fontSize: '18px', color: '#1E1B4B', letterSpacing: '0.5px' }}>
-        PERSONELLERİM
-      </span>
+      {/* Başlık / Logo Alanı */}
+      <div className={styles.logoAlan}>
+        <span className={styles.logoYazi}>PERSONELLERİM</span>
+      </div>
 
-      {/* Sağ İçi Dolu Çan İkonu */}
-      <button 
-        onClick={onBildirimTikla}
-        style={{ 
-          background: 'transparent', 
-          border: 'none', 
-          cursor: 'pointer', 
-          position: 'relative',
-          padding: '4px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
+      {/* Sağ Bildirim İkonu */}
+      <button className={styles.bildirimButon} onClick={onBildirimTikla}>
         <Bell size={24} color="#1E1B4B" fill="#1E1B4B" />
-        {/* Kırmızı Rozet Noktası */}
-        <span 
-          style={{
-            position: 'absolute',
-            top: '2px',
-            right: '2px',
-            width: '8px',
-            height: '8px',
-            backgroundColor: '#EF4444',
-            borderRadius: '50%',
-            border: '1.5px solid #F8F7FC'
-          }} 
-        />
+        {/* Kırmızı Rozet Noktaları */}
+        <span className={styles.bildirimNoktaDis} />
+        <span className={styles.bildirimNoktaIc} />
       </button>
     </div>
   );
