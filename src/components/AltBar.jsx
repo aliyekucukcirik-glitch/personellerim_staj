@@ -2,13 +2,13 @@ import React from 'react';
 import styles from './AltBar.module.css';
 import { User, QrCode, ScanLine, MapPin } from 'lucide-react';
 
-//  App.jsx'ten gelen profilAcik ve onProfilTikla prop'larını burada karşılıyoruz
-export default function AltBar({ profilAcik, onProfilTikla }) {
+// 🌟 Parametrelere onQrTikla eklendi
+export default function AltBar({ profilAcik, onProfilTikla, onQrTikla }) {
   return (
     <div className={styles.altBarSarmaKonteyner}>
       <div className={styles.altBarKonteyner}>
         
-        {/* 1. Profil Butonu - Tıklama fonksiyonu bağlandı */}
+        {/* 1. Profil Butonu */}
         <div 
           className={styles.menuEleman} 
           onClick={onProfilTikla}
@@ -21,7 +21,12 @@ export default function AltBar({ profilAcik, onProfilTikla }) {
         </div>
 
         {/* 2. QR Oluştur Butonu */}
-        <div className={styles.morButonGrup}>
+        {/* 🌟 Tıklama olayı (onClick) ve imleç stili eklendi */}
+        <div 
+          className={styles.morButonGrup}
+          onClick={onQrTikla}
+          style={{ cursor: 'pointer' }}
+        >
           <div className={styles.morButon}>
             <QrCode color="#FFFFFF" size={24} strokeWidth={2} />
           </div>
