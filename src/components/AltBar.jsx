@@ -2,7 +2,13 @@ import React from 'react';
 import styles from './AltBar.module.css';
 import { User, QrCode, ScanLine, MapPin } from 'lucide-react';
 
-export default function AltBar({ profilAcik, onProfilTikla, onQrTikla, onQrTaraTikla }) {
+export default function AltBar({ 
+  profilAcik, 
+  onProfilTikla, 
+  onQrTikla, 
+  onQrTaraTikla, 
+  onKonumIciTikla 
+}) {
   return (
     <div className={styles.altBarSarmaKonteyner}>
       <div className={styles.altBarKonteyner}>
@@ -31,7 +37,7 @@ export default function AltBar({ profilAcik, onProfilTikla, onQrTikla, onQrTaraT
           <span className={styles.yazi}>QR Oluştur</span>
         </div>
 
-        {/* 3. QR Tara Butonu (onClick Tıklama Olayı Bağlandı) */}
+        {/* 3. QR Tara Butonu */}
         <div 
           className={styles.morButonGrup}
           onClick={onQrTaraTikla}
@@ -43,8 +49,12 @@ export default function AltBar({ profilAcik, onProfilTikla, onQrTikla, onQrTaraT
           <span className={styles.yazi}>QR Tara</span>
         </div>
 
-        {/* 4. Konum İçi Butonu */}
-        <div className={styles.menuEleman}>
+        {/* 4. Konum İçi Butonu  */}
+        <div 
+          className={styles.menuEleman}
+          onClick={onKonumIciTikla}
+          style={{ cursor: 'pointer' }}
+        >
           <MapPin color="#64748B" size={24} strokeWidth={2} />
           <span className={styles.yazi}>Konum İçi</span>
         </div>

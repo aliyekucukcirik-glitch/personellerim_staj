@@ -64,7 +64,7 @@ export default function KareKodOkut({ acikMi, kapat }) {
 
       </div>
 
-      {/* 🌟 1. GÖRSELE TAM BİREBİR BAZ ALINAN POP-UP 🌟 */}
+      {/* POP-UP */}
       {modalDurumu && (
         <div className={styles.modalKarartma} onClick={handleEkranTiklama}>
           <div className={styles.modalKart} onClick={(e) => e.stopPropagation()}>
