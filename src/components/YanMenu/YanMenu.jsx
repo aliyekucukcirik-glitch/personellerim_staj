@@ -18,7 +18,7 @@ import {
 
 import sirketLogo from '../../assets/sirket-logo.png';
 
-export default function YanMenu({ acikMi, kapat, onOturumuKapat }) {
+export default function YanMenu({ acikMi, kapat, onOturumuKapat, onVardiyaPlanimAc }) {
   const [acikAkordeon, setAcikAkordeon] = useState(null);
 
   if (!acikMi) return null;
@@ -33,9 +33,17 @@ export default function YanMenu({ acikMi, kapat, onOturumuKapat }) {
 
   // Oturumu kapat butonuna tıklanınca çalışan fonksiyon
   const handleCikisYap = () => {
-    kapat(); // Önce yan menüyü kapatır daha sonra işleme devam eder
+    kapat(); 
     if (onOturumuKapat) {
       onOturumuKapat(); 
+    }
+  };
+
+  // Vardiya Planım tıklanınca çalışacak fonksiyon
+  const handleVardiyaPlanimTikla = () => {
+    kapat(); // Yan menüyü kapatır
+    if (onVardiyaPlanimAc) {
+      onVardiyaPlanimAc(); // Vardiya Planım sayfasını açar
     }
   };
 
@@ -46,7 +54,6 @@ export default function YanMenu({ acikMi, kapat, onOturumuKapat }) {
         {/* Üst Bar */}
         <div className={styles.ustBar}>
           <div className={styles.logoGrup}>
-           
             <img src={sirketLogo} alt="Şirket Logo" className={styles.logoGorsel} />
 
             <div className={styles.baslikMetin}>
@@ -83,7 +90,8 @@ export default function YanMenu({ acikMi, kapat, onOturumuKapat }) {
 
           {acikAkordeon === 'calismaPlanim' && (
             <div className={styles.altMenuListesi}>
-              <div className={styles.altMenuKart}>
+              {/* Vardiya Planım Kartına Tıklama Olayı Bağlandı */}
+              <div className={styles.altMenuKart} onClick={handleVardiyaPlanimTikla}>
                 <CalendarDays className={styles.altIkon} size={18} />
                 <span>Vardiya Planım</span>
               </div>
@@ -160,7 +168,6 @@ export default function YanMenu({ acikMi, kapat, onOturumuKapat }) {
 
         </div>
 
-        
         <div className={styles.altAltKisim}>
           <span className={styles.versiyonYazi}>v3.3.2</span>
           <button className={styles.cikisButon} onClick={handleCikisYap}>

@@ -1,0 +1,338 @@
+.tamSayfaKonteyner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f6f5fb;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px 32px 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  transform: translateY(100%);
+  animation: sayfayaGiris 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes sayfayaGiris {
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Üst Bar */
+.ustBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 20px;
+  padding-top: 4px;
+  width: 100%;
+  max-width: 520px; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.baslikYazi {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1e1b4b;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.kapatButon {
+  position: absolute;
+  right: 12px; 
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #1e1b4b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+
+
+.icerikAlani {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 520px; 
+  margin: 0 auto;
+  flex: 1;
+}
+
+.bilgiKutusu {
+  background: #f1edfe;
+  border-radius: 18px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.bilgiIkon {
+  color: #8b5cf6;
+  flex-shrink: 0;
+}
+
+.bilgiMetin {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #6b21a8;
+  line-height: 1.45;
+}
+
+.takvimKonteyner {
+  display: grid;
+  grid-template-columns: 1.15fr repeat(7, 1fr);
+  gap: 6px;
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+.gunBaslik {
+  font-size: 12px;
+  font-weight: 800;
+  color: #64748b;
+  text-align: center;
+  padding: 8px 0;
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+
+.haftaEtiket {
+  font-size: 11px;
+  font-weight: 800;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6px;
+  background: #f1f5f9;
+  border-radius: 12px;
+  line-height: 1.25;
+}
+
+.buHaftaEtiket {
+  background: #a855f7;
+  color: #ffffff;
+}
+
+.gunHucresi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 4px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  min-height: 56px; 
+  box-sizing: border-box;
+}
+
+.gunHucresi:hover {
+  transform: scale(1.05);
+}
+
+.gunSayi {
+  font-size: 15px;
+  font-weight: 900;
+  color: #1e1b4b;
+  line-height: 1;
+}
+
+.gunTip {
+  font-size: 10px;
+  font-weight: 700;
+  margin-top: 4px;
+  text-align: center;
+  line-height: 1.15;
+  word-break: break-word;
+}
+
+.normalMesai {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.varsayilanVardiya {
+  background-color: #f3e8ff;
+  color: #6b21a8;
+}
+
+.resmiTatil {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.haftaTatili {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.onayliIzin {
+  background-color: #ffe4e6;
+  color: #9f1239;
+}
+
+/*AÇIKLAMA LİSTESİ*/
+.lejantListesi {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+.lejantEleman {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.lejantKutu {
+  width: 20px;
+  height: 20px;
+  border-radius: 7px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Lejant Kutu Renkleri */
+.normalKutu { background-color: #d1fae5; border: 1.5px solid #34d399; }
+.varsayilanKutu { background-color: #f3e8ff; border: 1.5px solid #c084fc; }
+.resmiKutu { background-color: #e0f2fe; border: 1.5px solid #38bdf8; }
+.haftaKutu { background-color: #fef3c7; border: 1.5px solid #fbbf24; }
+.izinKutu { background-color: #ffe4e6; border: 1.5px solid #f43f5e; }
+
+.lejantMetinGrup {
+  display: flex;
+  flex-direction: column;
+}
+
+.lejantBaslik {
+  font-size: 14px;
+  font-weight: 800;
+  color: #1e1b4b;
+}
+
+.lejantAciklama {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.modalKarartma {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(30, 27, 75, 0.4);
+  backdrop-filter: blur(6px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modalKutu {
+  width: 100%;
+  max-width: 360px;
+  background: linear-gradient(135deg, #a855f7 0%, #8b5cf6 100%);
+  border-radius: 32px;
+  padding: 28px 22px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.35);
+}
+
+.modalKapat {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.modalTarihBaslik {
+  font-size: 19px;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+.saatKutulari {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.saatKart {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.saatEtiket {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.saatDegerGrup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.saatDeger {
+  font-size: 22px;
+  font-weight: 900;
+  color: #1e1b4b;
+}
+
+.okYesil {
+  color: #10b981;
+}
+
+.okKirmizi {
+  color: #ef4444;
+}
+
+.vardiyaTipEtiket {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 16px;
+  padding: 12px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 800;
+  box-sizing: border-box;
+}

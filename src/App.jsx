@@ -15,6 +15,7 @@ import KareKodOluştur from './components/KareKodOluştur/KareKodOluştur.jsx';
 import KareKodOkut from './components/KareKodOkut/KareKodOkut.jsx';
 import KonumIci from './components/KonumIci/KonumIci.jsx';
 import YanMenu from './components/YanMenu/YanMenu.jsx';
+import VardiyaPlanim from './components/VardiyaPlanim/VardiyaPlanim.jsx';
 
 export default function App() {
   const [yukleniyor, setYukleniyor] = useState(true);
@@ -28,6 +29,7 @@ export default function App() {
   const [kareKodOkutAcik, setKareKodOkutAcik] = useState(false);
   const [konumIciAcik, setKonumIciAcik] = useState(false);
   const [yanMenuAcik, setYanMenuAcik] = useState(false);
+  const [vardiyaPlanimAcik, setVardiyaPlanimAcik] = useState(false);
 
   // Sayfa yükleniyor ekranı zamanlayıcı
   useEffect(() => {
@@ -123,6 +125,11 @@ export default function App() {
         acikMi={yanMenuAcik} 
         kapat={() => setYanMenuAcik(false)}
         onOturumuKapat={handleOturumuKapat} 
+        onVardiyaPlanimAc={() => setVardiyaPlanimAcik(true)}
+      />
+      <VardiyaPlanim 
+        acikMi={vardiyaPlanimAcik} 
+        kapat={() => setVardiyaPlanimAcik(false)} 
       />
 
       <div style={styles.icerikAlani}>
