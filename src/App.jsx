@@ -17,6 +17,7 @@ import KonumIci from './components/KonumIci/KonumIci.jsx';
 import YanMenu from './components/YanMenu/YanMenu.jsx';
 import VardiyaPlanim from './components/VardiyaPlanim/VardiyaPlanim.jsx';
 import GirisCikisBilgilerim from './components/GirisCikisBilgilerim/GirisCikisBilgilerim.jsx';
+import MaasBilgilerim from './components/MaasBilgilerim/MaasBilgilerim.jsx';
 
 export default function App() {
   const [yukleniyor, setYukleniyor] = useState(true);
@@ -32,6 +33,7 @@ export default function App() {
   const [yanMenuAcik, setYanMenuAcik] = useState(false);
   const [vardiyaPlanimAcik, setVardiyaPlanimAcik] = useState(false);
   const [girisCikisAcik, setGirisCikisAcik] = useState(false);
+  const [maasBilgilerimAcik, setMaasBilgilerimAcik] = useState(false);
 
   // Sayfa yükleniyor ekranı zamanlayıcı
   useEffect(() => {
@@ -129,6 +131,7 @@ export default function App() {
         onOturumuKapat={handleOturumuKapat} 
         onVardiyaPlanimAc={() => setVardiyaPlanimAcik(true)}
         onGirisCikisAc={() => setGirisCikisAcik(true)}
+        onMaasBilgilerimAc={() => setMaasBilgilerimAcik(true)}
       />
 
       <VardiyaPlanim 
@@ -139,6 +142,11 @@ export default function App() {
       <GirisCikisBilgilerim 
         acikMi={girisCikisAcik} 
         kapat={() => setGirisCikisAcik(false)} 
+      />
+
+      <MaasBilgilerim 
+        acikMi={maasBilgilerimAcik} 
+        kapat={() => setMaasBilgilerimAcik(false)} 
       />
 
       <div style={styles.icerikAlani}>
