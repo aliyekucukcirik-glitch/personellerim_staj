@@ -24,7 +24,8 @@ export default function YanMenu({
   onOturumuKapat, 
   onVardiyaPlanimAc, 
   onGirisCikisAc, 
-  onMaasBilgilerimAc 
+  onMaasBilgilerimAc,
+  onIzinTaleplerimAc
 }) {
   const [acikAkordeon, setAcikAkordeon] = useState(null);
 
@@ -67,6 +68,14 @@ export default function YanMenu({
     kapat(); // Yan menüyü kapatır
     if (onMaasBilgilerimAc) {
       onMaasBilgilerimAc(); // Maaş Bilgilerim sayfasını açar
+    }
+  };
+
+  // İzin Taleplerim tıklanınca çalışacak fonksiyon
+  const handleIzinTaleplerimTikla = () => {
+    kapat(); // Yan menüyü kapatır
+    if (onIzinTaleplerimAc) {
+      onIzinTaleplerimAc(); // İzin Taleplerim sayfasını açar
     }
   };
 
@@ -151,7 +160,8 @@ export default function YanMenu({
 
           {acikAkordeon === 'taleplerim' && (
             <div className={styles.altMenuListesi}>
-              <div className={styles.altMenuKart}>
+              {/* İzin Taleplerim */}
+              <div className={styles.altMenuKart} onClick={handleIzinTaleplerimTikla}>
                 <CalendarDays className={styles.altIkon} size={18} />
                 <span>İzin Taleplerim</span>
               </div>
