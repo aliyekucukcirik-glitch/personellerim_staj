@@ -18,7 +18,14 @@ import {
 
 import sirketLogo from '../../assets/sirket-logo.png';
 
-export default function YanMenu({ acikMi, kapat, onOturumuKapat, onVardiyaPlanimAc, onGirisCikisAc }) {
+export default function YanMenu({ 
+  acikMi, 
+  kapat, 
+  onOturumuKapat, 
+  onVardiyaPlanimAc, 
+  onGirisCikisAc, 
+  onMaasBilgilerimAc 
+}) {
   const [acikAkordeon, setAcikAkordeon] = useState(null);
 
   if (!acikMi) return null;
@@ -52,6 +59,14 @@ export default function YanMenu({ acikMi, kapat, onOturumuKapat, onVardiyaPlanim
     kapat(); // Yan menüyü kapatır
     if (onGirisCikisAc) {
       onGirisCikisAc(); // Giriş - Çıkış Bilgilerim sayfasını açar
+    }
+  };
+
+  // Maaş Bilgilerim tıklanınca çalışacak fonksiyon
+  const handleMaasBilgilerimTikla = () => {
+    kapat(); // Yan menüyü kapatır
+    if (onMaasBilgilerimAc) {
+      onMaasBilgilerimAc(); // Maaş Bilgilerim sayfasını açar
     }
   };
 
@@ -111,7 +126,7 @@ export default function YanMenu({ acikMi, kapat, onOturumuKapat, onVardiyaPlanim
               </div>
 
               {/* Maaş Bilgilerim */}
-              <div className={styles.altMenuKart}>
+              <div className={styles.altMenuKart} onClick={handleMaasBilgilerimTikla}>
                 <Wallet className={styles.altIkon} size={18} />
                 <span>Maaş Bilgilerim</span>
               </div>
