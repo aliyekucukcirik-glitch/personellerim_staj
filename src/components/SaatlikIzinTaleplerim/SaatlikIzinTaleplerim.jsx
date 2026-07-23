@@ -61,7 +61,7 @@ export default function SaatlikIzinTaleplerim({ acikMi, kapat }) {
     const bitDakika = bitSa * 60 + bitDk;
     const fark = (bitDakika - basDakika) / 60;
     
-    return fark > 0 ? fark : 1;
+    return fark > 0 ? fark.toFixed(1).replace('.0', '') : 1;
   };
 
   // Takvim Gün Seçimi
@@ -209,7 +209,7 @@ export default function SaatlikIzinTaleplerim({ acikMi, kapat }) {
         </>
       ) : (
         
-        /*SAATLİK İZİN TALEBİ OLUŞTURMA SAYFASI  */
+        /* SAATLİK İZİN TALEBİ OLUŞTURMA SAYFASI  */
         <>
           <div className={styles.ustBar}>
             <span className={styles.baslikYazi}>SAATLİK İZİN TALEBİ</span>
@@ -277,7 +277,7 @@ export default function SaatlikIzinTaleplerim({ acikMi, kapat }) {
                 </div>
               </div>
 
-              {/* TALEP TÜRÜ (İZİN / GÖREV KARTLARI)  */}
+              {/* TALEP TÜRÜ */}
               <div>
                 <span className={styles.alantEtiket}>TALEP TÜRÜ</span>
                 <div className={styles.talepTuruGrid}>
@@ -325,7 +325,7 @@ export default function SaatlikIzinTaleplerim({ acikMi, kapat }) {
         </>
       )}
 
-      {/* ÖZEL TAKVİM POPUP */}
+      {/*  ÖZEL TAKVİM POPUP MODALI  */}
       {takvimModalAcik && (
         <div className={styles.modalOverlay} onClick={() => setTakvimModalAcik(false)}>
           <div className={styles.modalTakvimKutu} onClick={(e) => e.stopPropagation()}>
@@ -390,7 +390,7 @@ export default function SaatlikIzinTaleplerim({ acikMi, kapat }) {
         </div>
       )}
 
-      {/*  SAAT SEÇİCİ MODAL */}
+      {/*  SAAT VE DAKİKA SEÇİCİ MODAL */}
       {saatModalAcik && (
         <div className={styles.modalOverlay} onClick={() => setSaatModalAcik(false)}>
           <div className={styles.saatModalKutu} onClick={(e) => e.stopPropagation()}>
@@ -398,6 +398,7 @@ export default function SaatlikIzinTaleplerim({ acikMi, kapat }) {
               {saatHedef === 'baslangic' ? 'Başlangıç Saati Seçin' : 'Bitiş Saati Seçin'}
             </span>
             <div className={styles.saatInputListesi}>
+              {/* Saat Seçimi (00 - 23) */}
               <select 
                 className={styles.saatSelect}
                 value={saatHedef === 'baslangic' ? baslangicSaati.split(':')[0] : bitisSaati.split(':')[0]}
@@ -412,7 +413,10 @@ export default function SaatlikIzinTaleplerim({ acikMi, kapat }) {
                   return <option key={val} value={val}>{val}</option>;
                 })}
               </select>
+
               <span style={{ fontSize: '20px', fontWeight: 'bold' }}>:</span>
+
+              {/* Dakika Seçimi (00 - 59 Arası Tümü) */}
               <select 
                 className={styles.saatSelect}
                 value={saatHedef === 'baslangic' ? baslangicSaati.split(':')[1] : bitisSaati.split(':')[1]}
@@ -422,9 +426,10 @@ export default function SaatlikIzinTaleplerim({ acikMi, kapat }) {
                   else setBitisSaati(yeniDk);
                 }}
               >
-                {['00', '15', '30', '45'].map((dk) => (
-                  <option key={dk} value={dk}>{dk}</option>
-                ))}
+                {Array.from({ length: 60 }).map((_, i) => {
+                  const dk = String(i).padStart(2, '0');
+                  return <option key={dk} value={dk}>{dk}</option>;
+                })}
               </select>
             </div>
             <button 
