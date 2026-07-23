@@ -18,7 +18,7 @@ import {
 
 import sirketLogo from '../../assets/sirket-logo.png';
 
-export default function YanMenu({ acikMi, kapat, onOturumuKapat, onVardiyaPlanimAc }) {
+export default function YanMenu({ acikMi, kapat, onOturumuKapat, onVardiyaPlanimAc, onGirisCikisAc }) {
   const [acikAkordeon, setAcikAkordeon] = useState(null);
 
   if (!acikMi) return null;
@@ -46,6 +46,13 @@ export default function YanMenu({ acikMi, kapat, onOturumuKapat, onVardiyaPlanim
       onVardiyaPlanimAc(); // Vardiya Planım sayfasını açar
     }
   };
+  <div 
+  className={styles.altMenuKart}
+  onClick={() => {
+    kapat();
+    if(onGirisCikisAc) onGirisCikisAc();
+  }}
+></div>
 
   return (
     <div className={styles.overlay} onClick={kapat}>
