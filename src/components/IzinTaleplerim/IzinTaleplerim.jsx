@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import styles from './IzinTaleplerim.module.css';
 import { 
   X, 
-  Calendar, 
+  Calendar as CalendarIcon, 
   Plus, 
   Info, 
   ArrowRight, 
   ChevronDown, 
-  Send 
+  Send,
+  Trash2,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 
 export default function IzinTaleplerim({ acikMi, kapat }) {
@@ -21,28 +24,38 @@ export default function IzinTaleplerim({ acikMi, kapat }) {
   const [dropdownAcik, setDropdownAcik] = useState(false);
   const [aciklama, setAciklama] = useState('');
 
+  // ÖZEL TAKVİM MODAL STATE'LERİ
+  const [takvimModalAcik, setTakvimModalAcik] = useState(false);
+  const [takvimHedef, setTakvimHedef] = useState('baslangic'); // 'baslangic' veya 'bitis'
+  const [takvimYil, setTakvimYil] = useState(2026);
+  const [takvimAy, setTakvimAy] = useState(6); // 0: Ocak, 6: Temmuz
+
   // Oluşturulan Talepler Listesi
   const [talepListesi, setTalepListesi] = useState([]);
 
   if (!acikMi) return null;
 
-  // İzin Türü Seçenekleri Listesi
   const izinTurleri = [
-    "seçim yapılmadı",
+    "Seçim Yapılmadı",
     "Yıllık İzin",
     "yıllık ücretli izin",
-    "doğum izni",
-    "periyodik kontrol izni",
-    "babalık izni",
-    "evlenme izni",
-    "engelli çocuk tedavisi izni",
-    "ölüm izni",
-    "doğum izni(ücretsiz)",
-    "yol izni(ücretsiz)",
-    "ücretsiz izin",
-    "ücretli idari izin",
-    "dış görev",
-    "iş kazası raporu(ücretsiz)"
+    "Doğum İzni",
+    "Periyodik Kontrol İzni",
+    "Babalık İzni",
+    "Evlenme İzni",
+    "Engelli Çocuk Tedavisi İzni",
+    "Ölüm İzni",
+    "Doğum İzni(Ücretsiz)",
+    "Yol İzni(Ücretsiz)",
+    "Ücretsiz İzin",
+    "Ücretli İdari İzin",
+    "Dış Görev",
+    "İş Kazası Raporu(Ücretsiz)"
+  ];
+
+  const ayAdlari = [
+    "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
+    "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"
   ];
 
   // Tarih Formatlama (YYYY-MM-DD -> DD.MM.YYYY)
@@ -73,6 +86,55 @@ export default function IzinTaleplerim({ acikMi, kapat }) {
     return `${d}.${m}.${y}`;
   };
 
+  // Takvim Açma Fonksiyonu
+  const handleTakvimAc = (hedef) => {
+    setTakvimHedef(hedef);
+    const mevcutTarihStr = hedef === 'baslangic' ? baslangicTarihi : bitisTarihi;
+    if (mevcutTarihStr) {
+      const [y, m] = mevcutTarihStr.split('-');
+      setTakvimYil(parseInt(y));
+      setTakvimAy(parseInt(m) - 1);
+    }
+    setTakvimModalAcik(true);
+  };
+
+  // Takvimden Gün Seçildiğinde
+  const handleGunSec = (gunSayi) => {
+    const mStr = String(takvimAy + 1).padStart(2, '0');
+    const dStr = String(gunSayi).padStart(2, '0');
+    const secilenStr = `${takvimYil}-${mStr}-${dStr}`;
+
+    if (takvimHedef === 'baslangic') {
+      setBaslangicTarihi(secilenStr);
+      // Eğer bitis başlangıçtan küçük kalırsa eşitle
+      if (new Date(secilenStr) > new Date(bitisTarihi)) {
+        setBitisTarihi(secilenStr);
+      }
+    } else {
+      setBitisTarihi(secilenStr);
+    }
+    setTakvimModalAcik(false);
+  };
+
+  // Takvim Ay Değiştirme
+  const handleTakvimAyDegistir = (yon) => {
+    if (yon === 'ileri') {
+      if (takvimAy === 11) {
+        setTakvimAy(0);
+        setTakvimYil(takvimYil + 1);
+      } else {
+        setTakvimAy(takvimAy + 1);
+      }
+    } else {
+      if (takvimAy === 0) {
+        setTakvimAy(11);
+        setTakvimYil(takvimYil - 1);
+      } else {
+        setTakvimAy(takvimAy - 1);
+      }
+    }
+  };
+
   // Formu Gönderip Talebi Kaydetme
   const handleTalepGonder = (e) => {
     e.preventDefault();
@@ -86,21 +148,31 @@ export default function IzinTaleplerim({ acikMi, kapat }) {
       tur: secilenIzinTuru,
       baslangic: formatTarih(baslangicTarihi),
       bitis: formatTarih(bitisTarihi),
+      gunSayisi: hesaplaGunSayisi(),
       durum: "Onay Bekliyor"
     };
 
     setTalepListesi([yeniTalep, ...talepListesi]);
-    setFormAcik(false); // Ana sayfaya döner
+    setFormAcik(false);
     setAciklama('');
   };
+
+  // Talebi Silme
+  const handleTalepSil = (id) => {
+    setTalepListesi(talepListesi.filter(t => t.id !== id));
+  };
+
+  // Ayın gün sayısını ve ilk gün ofsetini hesaplama
+  const ayinGunSayisi = new Date(takvimYil, takvimAy + 1, 0).getDate();
+  const ilkGunHaftaninGunu = new Date(takvimYil, takvimAy, 1).getDay(); // 0: Pazar
+  const boslukSayisi = ilkGunHaftaninGunu === 0 ? 6 : ilkGunHaftaninGunu - 1; // Pzt=0 yap
 
   return (
     <div className={styles.tamSayfaKonteyner}>
       
-      {/* İZİN TALEPLERİM ANA SAYFASI */}
+      {/*  İZİN TALEPLERİM ANA SAYFASI */}
       {!formAcik ? (
         <>
-          {/* Üst Bar */}
           <div className={styles.ustBar}>
             <span className={styles.baslikYazi}>İZİN TALEPLERİM</span>
             <button className={styles.kapatButon} onClick={kapat}>
@@ -110,11 +182,10 @@ export default function IzinTaleplerim({ acikMi, kapat }) {
 
           <div className={styles.icerikAlani}>
             
-            {/* Kalan İzin Süresi Bakiyesi */}
             <div className={styles.bakiyeKart}>
               <div className={styles.bakiyeSol}>
                 <div className={styles.bakiyeIkonKutusu}>
-                  <Calendar size={22} strokeWidth={2.2} />
+                  <CalendarIcon size={22} strokeWidth={2.2} />
                 </div>
                 <div className={styles.bakiyeMetinGrup}>
                   <span className={styles.bakiyeEtiket}>KALAN İZİN SÜRESİ</span>
@@ -124,7 +195,6 @@ export default function IzinTaleplerim({ acikMi, kapat }) {
               <span className={styles.bakiyeGun}>14 Gün</span>
             </div>
 
-            {/* Filtre Sekmeleri */}
             <div className={styles.sekmelerKonteyner}>
               <button 
                 className={`${styles.sekmeButon} ${aktifSekme === 'HAFTA' ? styles.sekmeButonAktif : ''}`}
@@ -146,11 +216,10 @@ export default function IzinTaleplerim({ acikMi, kapat }) {
               </button>
             </div>
 
-            {/* Liste veya Boş Durum */}
             {talepListesi.length === 0 ? (
               <div className={styles.bosDurumKonteyner}>
                 <div className={styles.bosDurumDaire}>
-                  <Calendar size={48} strokeWidth={1.8} />
+                  <CalendarIcon size={48} strokeWidth={1.8} />
                 </div>
                 <span className={styles.bosDurumBaslik}>Listelenecek İzin Kaydı Bulunamadı</span>
                 <span className={styles.bosDurumAciklama}>
@@ -163,17 +232,27 @@ export default function IzinTaleplerim({ acikMi, kapat }) {
                   <div key={item.id} className={styles.talepKart}>
                     <div className={styles.talepKartUst}>
                       <span className={styles.talepTurMetin}>{item.tur}</span>
-                      <span className={styles.talepDurumPill}>{item.durum}</span>
+                      <div className={styles.talepSagGrup}>
+                        <span className={styles.talepDurumPill}>{item.durum}</span>
+                        <button 
+                          className={styles.silButon}
+                          onClick={() => handleTalepSil(item.id)}
+                          title="Talebi Sil"
+                        >
+                          <Trash2 size={18} />
+                        </button>
+                      </div>
                     </div>
-                    <span className={styles.talepTarihMetin}>
-                      {item.baslangic} - {item.bitis}
-                    </span>
+                    <div className={styles.talepKartAlt}>
+                      <span className={styles.talepTarihMetin}>
+                        {item.baslangic} - {item.bitis} ({item.gunSayisi} Gün)
+                      </span>
+                    </div>
                   </div>
                 ))}
               </div>
             )}
 
-            {/* + EKLEME BUTONU */}
             <button className={styles.ekleFabButon} onClick={() => setFormAcik(true)}>
               <Plus size={28} strokeWidth={2.8} />
             </button>
@@ -182,9 +261,8 @@ export default function IzinTaleplerim({ acikMi, kapat }) {
         </>
       ) : (
         
-        /* İZİN TALEBİ OLUŞTURMA SAYFASI */
+        /* İZİN TALEBİ OLUŞTURMA SAYFASI  */
         <>
-          {/* Üst Bar */}
           <div className={styles.ustBar}>
             <span className={styles.baslikYazi}>İZİN TALEBİ</span>
             <button className={styles.kapatButon} onClick={() => setFormAcik(false)}>
@@ -195,7 +273,6 @@ export default function IzinTaleplerim({ acikMi, kapat }) {
           <div className={styles.icerikAlani}>
             <form onSubmit={handleTalepGonder} className={styles.formKonteyner}>
               
-              {/* Mor Bilgilendirme Kutusu */}
               <div className={styles.bilgiKutusu}>
                 <Info className={styles.bilgiIkon} size={20} />
                 <span className={styles.bilgiMetin}>
@@ -209,34 +286,27 @@ export default function IzinTaleplerim({ acikMi, kapat }) {
                 <div className={styles.tarihAraligiKutu}>
                   
                   <div className={styles.tarihSeciciSatir}>
-                    {/* Başlangıç Tarihi Kutusu */}
-                    <div className={`${styles.tarihInputKutu} ${styles.baslangicKutu}`}>
+                    {/* Başlangıç Kutusuna Tıklayınca Özel Takvim Açılır */}
+                    <div 
+                      className={`${styles.tarihInputKutu} ${styles.baslangicKutu}`}
+                      onClick={() => handleTakvimAc('baslangic')}
+                    >
                       <span className={styles.tarihInputEtiket}>BAŞLANGIÇ</span>
                       <span className={styles.tarihDegerMetin}>{formatTarih(baslangicTarihi)}</span>
-                      <input 
-                        type="date" 
-                        className={styles.gizliDateInput}
-                        value={baslangicTarihi}
-                        onChange={(e) => setBaslangicTarihi(e.target.value)}
-                      />
                     </div>
 
                     <ArrowRight className={styles.okSimge} size={18} strokeWidth={2.5} />
 
-                    {/* Bitiş Tarihi Kutusu */}
-                    <div className={`${styles.tarihInputKutu} ${styles.bitisKutu}`}>
+                    {/* Bitiş Kutusuna Tıklayınca Özel Takvim Açılır */}
+                    <div 
+                      className={`${styles.tarihInputKutu} ${styles.bitisKutu}`}
+                      onClick={() => handleTakvimAc('bitis')}
+                    >
                       <span className={styles.tarihInputEtiket}>BİTİŞ</span>
                       <span className={styles.tarihDegerMetin}>{formatTarih(bitisTarihi)}</span>
-                      <input 
-                        type="date" 
-                        className={styles.gizliDateInput}
-                        value={bitisTarihi}
-                        onChange={(e) => setBitisTarihi(e.target.value)}
-                      />
                     </div>
                   </div>
 
-                  {/* Dinamik Gün Sayısı ve İşe Dönüş */}
                   <div className={styles.tarihAltBilgi}>
                     <span className={styles.gunKapsul}>{hesaplaGunSayisi()} gün</span>
                     <span className={styles.iseDonusMetin}>
@@ -256,14 +326,13 @@ export default function IzinTaleplerim({ acikMi, kapat }) {
                 >
                   <div className={styles.izinTuruSol}>
                     <div className={styles.izinTuruIkonKutu}>
-                      <Calendar size={20} strokeWidth={2.2} />
+                      <CalendarIcon size={20} strokeWidth={2.2} />
                     </div>
                     <span className={styles.izinTuruMetin}>{secilenIzinTuru}</span>
                   </div>
                   <ChevronDown size={20} color="#64748b" />
                 </div>
 
-                {/* Açılır Dropdown Liste */}
                 {dropdownAcik && (
                   <div className={styles.dropdownMenu}>
                     {izinTurleri.map((tur, idx) => (
@@ -293,7 +362,6 @@ export default function IzinTaleplerim({ acikMi, kapat }) {
                 />
               </div>
 
-              {/* TALEP GÖNDER BUTONU */}
               <button type="submit" className={styles.gonderButon}>
                 <Send size={18} />
                 <span>Talebi Gönder</span>
@@ -302,6 +370,84 @@ export default function IzinTaleplerim({ acikMi, kapat }) {
             </form>
           </div>
         </>
+      )}
+
+      {/* ÖZEL TAKVİM POPUP MODALI */}
+      {takvimModalAcik && (
+        <div className={styles.modalOverlay} onClick={() => setTakvimModalAcik(false)}>
+          <div className={styles.modalTakvimKutu} onClick={(e) => e.stopPropagation()}>
+            
+            {/* Takvim Üst Başlık ve Ay Değiştirici */}
+            <div className={styles.takvimUstBar}>
+              <span className={styles.takvimBaslikYazi}>
+                {ayAdlari[takvimAy]} {takvimYil}
+              </span>
+              <div className={styles.takvimOkGrup}>
+                <button 
+                  type="button"
+                  className={styles.takvimOkButon}
+                  onClick={() => handleTakvimAyDegistir('geri')}
+                >
+                  <ChevronLeft size={20} />
+                </button>
+                <button 
+                  type="button"
+                  className={styles.takvimOkButon}
+                  onClick={() => handleTakvimAyDegistir('ileri')}
+                >
+                  <ChevronRight size={20} />
+                </button>
+              </div>
+            </div>
+
+            {/* Gün Adları */}
+            <div className={styles.takvimGunBasliklari}>
+              <span>Pt</span><span>Sa</span><span>Ça</span><span>Pe</span><span>Cu</span><span>Ct</span><span>Pz</span>
+            </div>
+
+            {/* Takvim Günleri Grid */}
+            <div className={styles.takvimGunGrid}>
+              {/* Boşluklar */}
+              {Array.from({ length: boslukSayisi }).map((_, i) => (
+                <div key={`bos-${i}`} />
+              ))}
+
+              {/* Ayın Günleri */}
+              {Array.from({ length: ayinGunSayisi }).map((_, i) => {
+                const gunNum = i + 1;
+                const mStr = String(takvimAy + 1).padStart(2, '0');
+                const dStr = String(gunNum).padStart(2, '0');
+                const buGunStr = `${takvimYil}-${mStr}-${dStr}`;
+
+                const seciliMi = 
+                  takvimHedef === 'baslangic' 
+                    ? baslangicTarihi === buGunStr 
+                    : bitisTarihi === buGunStr;
+
+                return (
+                  <button
+                    key={gunNum}
+                    type="button"
+                    className={`${styles.takvimGunBtn} ${seciliMi ? styles.takvimGunSecili : ''}`}
+                    onClick={() => handleGunSec(gunNum)}
+                  >
+                    {gunNum}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Kapat Butonu */}
+            <button 
+              type="button"
+              className={styles.takvimKapatBtn}
+              onClick={() => setTakvimModalAcik(false)}
+            >
+              Vazgeç
+            </button>
+
+          </div>
+        </div>
       )}
 
     </div>
