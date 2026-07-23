@@ -46,13 +46,14 @@ export default function YanMenu({ acikMi, kapat, onOturumuKapat, onVardiyaPlanim
       onVardiyaPlanimAc(); // Vardiya Planım sayfasını açar
     }
   };
-  <div 
-  className={styles.altMenuKart}
-  onClick={() => {
-    kapat();
-    if(onGirisCikisAc) onGirisCikisAc();
-  }}
-></div>
+
+  // Giriş - Çıkış Bilgilerim tıklanınca çalışacak fonksiyon
+  const handleGirisCikisTikla = () => {
+    kapat(); // Yan menüyü kapatır
+    if (onGirisCikisAc) {
+      onGirisCikisAc(); // Giriş - Çıkış Bilgilerim sayfasını açar
+    }
+  };
 
   return (
     <div className={styles.overlay} onClick={kapat}>
@@ -97,15 +98,19 @@ export default function YanMenu({ acikMi, kapat, onOturumuKapat, onVardiyaPlanim
 
           {acikAkordeon === 'calismaPlanim' && (
             <div className={styles.altMenuListesi}>
-              {/* Vardiya Planım Kartına Tıklama Olayı Bağlandı */}
+              {/* Vardiya Planım */}
               <div className={styles.altMenuKart} onClick={handleVardiyaPlanimTikla}>
                 <CalendarDays className={styles.altIkon} size={18} />
                 <span>Vardiya Planım</span>
               </div>
-              <div className={styles.altMenuKart}>
+
+              {/* Giriş - Çıkış Bilgilerim */}
+              <div className={styles.altMenuKart} onClick={handleGirisCikisTikla}>
                 <Grid className={styles.altIkon} size={18} />
                 <span>Giriş - Çıkış Bilgilerim</span>
               </div>
+
+              {/* Maaş Bilgilerim */}
               <div className={styles.altMenuKart}>
                 <Wallet className={styles.altIkon} size={18} />
                 <span>Maaş Bilgilerim</span>
