@@ -26,14 +26,66 @@ export default function MaasBilgilerim({ acikMi, kapat }) {
     setAcikSatirIndex(acikSatirIndex === index ? null : index);
   };
 
+  //  GÜNCELLENEN VERİ DİZİSİ 
   const veriler = [
-    { tarih: "01/Çarşamba", kazanc: "₺ 0.00", durum: "Devamsız", serit: styles.seritDevamsiz, pill: styles.pillDevamsiz },
-    { tarih: "02/Perşembe", kazanc: "₺ 0.00", durum: "Devamsız", serit: styles.seritDevamsiz, pill: styles.pillDevamsiz },
-    { tarih: "03/Cuma", kazanc: "₺ 0.00", durum: "Devamsız", serit: styles.seritDevamsiz, pill: styles.pillDevamsiz },
-    { tarih: "04/Cumartesi", kazanc: "₺ 0.00", durum: "Hafta Tatili", serit: styles.seritTatil, pill: styles.pillTatil },
-    { tarih: "06/Pazartesi", kazanc: "₺ 1.500,00", durum: "Normal", serit: styles.seritNormal, pill: styles.pillNormal, dolu: true },
-    { tarih: "07/Salı", kazanc: "₺ 1.800,00", durum: "Fazla Mesai", serit: styles.seritFazlaMesai, pill: styles.pillFazlaMesai, dolu: true },
-    { tarih: "08/Çarşamba", kazanc: "₺ 0.00", durum: "Devamsız", serit: styles.seritDevamsiz, pill: styles.pillDevamsiz },
+    { 
+      tarih: "01/Çarşamba", 
+      kazanc: "₺ 0.00", 
+      durum: "Devamsız", 
+      serit: styles.seritDevamsiz, 
+      pill: styles.pillDevamsiz,
+      detay: { normal: "₺ 0,00", fazla: "₺ 0,00", eksik: "₺ 0,00" }
+    },
+    { 
+      tarih: "02/Perşembe", 
+      kazanc: "₺ 0.00", 
+      durum: "Devamsız", 
+      serit: styles.seritDevamsiz, 
+      pill: styles.pillDevamsiz,
+      detay: { normal: "₺ 0,00", fazla: "₺ 0,00", eksik: "₺ 0,00" }
+    },
+    { 
+      tarih: "03/Cuma", 
+      kazanc: "₺ 0.00", 
+      durum: "Devamsız", 
+      serit: styles.seritDevamsiz, 
+      pill: styles.pillDevamsiz,
+      detay: { normal: "₺ 0,00", fazla: "₺ 0,00", eksik: "₺ 0,00" }
+    },
+    { 
+      tarih: "04/Cumartesi", 
+      kazanc: "₺ 0.00", 
+      durum: "Hafta Tatili", 
+      serit: styles.seritTatil, 
+      pill: styles.pillTatil,
+      detay: { normal: "₺ 0,00", fazla: "₺ 0,00", eksik: "₺ 0,00" }
+    },
+    { 
+      tarih: "06/Pazartesi", 
+      kazanc: "₺ 1.500,00", 
+      durum: "Normal", 
+      serit: styles.seritNormal, 
+      pill: styles.pillNormal, 
+      dolu: true,
+      detay: { normal: "₺ 1.500,00", fazla: "₺ 0,00", eksik: "₺ 0,00" } 
+    },
+    { 
+      tarih: "07/Salı", 
+      kazanc: "₺ 1.800,00", 
+      durum: "Fazla Mesai", 
+      serit: styles.seritFazlaMesai, 
+      pill: styles.pillFazlaMesai, 
+      dolu: true,
+      detay: { normal: "₺ 0,00", fazla: "₺ 1.800,00", eksik: "₺ 0,00" } 
+    },
+    { 
+      tarih: "08/Çarşamba", 
+      kazanc: "₺ 0.00", 
+      durum: "Devamsız", 
+      serit: styles.seritDevamsiz, 
+      pill: styles.pillDevamsiz,
+      detay: { normal: "₺ 0,00", fazla: "₺ 0,00", eksik: "₺ 0,00" }
+    },
   ];
 
   return (
@@ -92,20 +144,20 @@ export default function MaasBilgilerim({ acikMi, kapat }) {
                 <span className={`${styles.etiketPill} ${item.pill}`}>{item.durum}</span>
               </div>
 
-              {/* TIKLANINCA ALTINDA AÇILAN DETAY KARTLARI */}
+              {/* GÜNCELLENEN DİNAMİK AÇILIR MESAİ DETAYLARI */}
               {acikSatirIndex === index && (
                 <div className={styles.satirDetayAlani}>
                   <div className={`${styles.detayKutu} ${styles.detayNormal}`}>
                     <span className={styles.detayMetin}>Normal Mesai:</span>
-                    <span className={styles.detayTutar}>₺ 0,00</span>
+                    <span className={styles.detayTutar}>{item.detay.normal}</span>
                   </div>
                   <div className={`${styles.detayKutu} ${styles.detayYesil}`}>
                     <span className={styles.detayMetin}>Fazla Mesai:</span>
-                    <span className={styles.detayTutar}>₺ 0,00</span>
+                    <span className={styles.detayTutar}>{item.detay.fazla}</span>
                   </div>
                   <div className={`${styles.detayKutu} ${styles.detayKirmizi}`}>
                     <span className={styles.detayMetin}>Eksik Çalışma:</span>
-                    <span className={styles.detayTutar}>₺ 0,00</span>
+                    <span className={styles.detayTutar}>{item.detay.eksik}</span>
                   </div>
                 </div>
               )}
@@ -113,7 +165,7 @@ export default function MaasBilgilerim({ acikMi, kapat }) {
           ))}
         </div>
 
-        {/* TOPLAMLAR BUTONU VE DETAY KARTI   */}
+        {/* TOPLAMLAR BUTONU VE DETAY KARTI */}
         <div className={styles.toplamlarKonteyner}>
           <div className={styles.toplamlarUstBar} onClick={() => setToplamlarAcik(!toplamlarAcik)}>
             <span className={styles.toplamlarBaslik}>Toplamlar</span>
@@ -128,7 +180,6 @@ export default function MaasBilgilerim({ acikMi, kapat }) {
             )}
           </div>
 
-          {/*  DETAYLARI İÇEREN AÇILIR KART  */}
           {toplamlarAcik && (
             <div className={styles.toplamlarDetayAlani} onClick={(e) => e.stopPropagation()}>
               
@@ -138,12 +189,12 @@ export default function MaasBilgilerim({ acikMi, kapat }) {
                 <span className={styles.netUcretTutar}>₺ 42.500,00</span>
               </div>
 
-              {/* Çalışma Süreleri &  Grafik */}
+              {/* Çalışma Süreleri ve Grafik */}
               <div className={styles.calismaSureleriKutu}>
                 <span className={styles.surelerBaslik}>ÇALIŞMA SÜRELERİ</span>
                 <div className={styles.grafikVeLejant}>
                   
-                  {/*  Grafik */}
+                  {/* Grafik */}
                   <div className={styles.simitGrafikKonteyner}>
                     <div className={styles.simitGrafik}>
                       <div className={styles.grafikIcDaire}>
