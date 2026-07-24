@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import styles from './Zimmetlerim.module.css';
 import { X, MapPin } from 'lucide-react';
+import iphoneGorsel from '../../assets/İphone14.png';
 
 export default function Zimmetlerim({ acikMi, kapat }) {
   const [aktifSekme, setAktifSekme] = useState('ZİMMETLİ');
 
   if (!acikMi) return null;
 
-  // Örnek Zimmet Verisi
   const zimmetler = [
     {
       id: 1,
@@ -17,7 +17,7 @@ export default function Zimmetlerim({ acikMi, kapat }) {
       seriNo: "F2NLK90-XYZ123",
       konum: "İDARİ BİNA",
       tarih: "17 Temmuz 2026",
-      gorsel: "https://images.unsplash.com/photo-1663499482523-1c0c1bae4ce1?q=80&w=400&auto=format&fit=crop"
+      gorsel: iphoneGorsel
     }
   ];
 
