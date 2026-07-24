@@ -1,0 +1,456 @@
+.tamSayfaKonteyner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f6f5fb;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px 32px 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  transform: translateY(100%);
+  animation: sayfayaGiris 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes sayfayaGiris {
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Üst Bar */
+.ustBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 20px;
+  padding-top: 4px;
+  width: 100%;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.baslikYazi {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1e1b4b;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.kapatButon {
+  position: absolute;
+  right: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #1e1b4b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+
+.icerikAlani {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  flex: 1;
+  position: relative;
+}
+
+.alantEtiket {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #8b5cf6;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* ÜST 2'Lİ ÖZET KARTLAR (GEÇMİŞ & MEVCUT) */
+.ozetGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.ozetKart {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  border: 1px solid #f1f5f9;
+}
+
+/* Sağdaki Mevcut Ay Kartı */
+.ozetKartMevcut {
+  border: 1.8px solid #a855f7;
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.12);
+}
+
+.ozetEtiket {
+  font-size: 11px;
+  font-weight: 800;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.ozetTutar {
+  font-size: 22px;
+  font-weight: 900;
+  color: #64748b;
+}
+
+/* FİLTRE SEKMELERİ */
+.sekmelerKonteyner {
+  background: #ede9fe;
+  border-radius: 18px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.sekmeButon {
+  flex: 1;
+  padding: 11px 0;
+  border: none;
+  border-radius: 14px;
+  background: transparent;
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #8b5cf6;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sekmeButonAktif {
+  background: linear-gradient(135deg, #a855f7 0%, #8b5cf6 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
+}
+
+/* BOŞ DURUM */
+.bosDurumKonteyner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: auto 0;
+  padding: 30px 20px;
+}
+
+.bosDurumDaire {
+  width: 100px;
+  height: 100px;
+  background: #ede9fe;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a855f7;
+  margin-bottom: 20px;
+}
+
+.bosDurumBaslik {
+  font-size: 16.5px;
+  font-weight: 800;
+  color: #1e1b4b;
+  margin-bottom: 8px;
+}
+
+.bosDurumAciklama {
+  font-size: 13px;
+  font-weight: 500;
+  color: #94a3b8;
+  line-height: 1.5;
+  max-width: 340px;
+}
+
+/* EKLEME BUTONU (FAB) */
+.ekleFabButon {
+  position: fixed;
+  bottom: 48px;
+  right: calc(50vw - 280px);
+  width: 58px;
+  height: 58px;
+  background: linear-gradient(135deg, #a855f7 0%, #8b5cf6 100%);
+  border-radius: 50%;
+  border: none;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
+  transition: transform 0.2s ease;
+  z-index: 10;
+}
+
+@media (max-width: 540px) {
+  .ekleFabButon {
+    right: 28px;
+  }
+}
+
+/* OLUŞTURULAN TALEPLER LİSTESİ */
+.talepListesi {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.talepKart {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 16px 18px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  border: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.talepKartUst {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.talepTurMetin {
+  font-size: 15px;
+  font-weight: 800;
+  color: #1e1b4b;
+}
+
+.talepSagGrup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.talepDurumPill {
+  background: #fef3c7;
+  color: #b45309;
+  font-size: 11.5px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 10px;
+}
+
+.silButon {
+  background: #fef2f2;
+  color: #ef4444;
+  border: none;
+  border-radius: 10px;
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.silButon:hover {
+  background: #fee2e2;
+}
+
+.talepTutarMetin {
+  font-size: 16px;
+  font-weight: 900;
+  color: #8b5cf6;
+}
+
+/* FORM SAYFASI */
+.formKonteyner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.bilgiKutusu {
+  background: #f1edfe;
+  border-radius: 18px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bilgiIkon {
+  color: #8b5cf6;
+  flex-shrink: 0;
+}
+
+.bilgiMetin {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #6b21a8;
+  line-height: 1.45;
+}
+
+/* AVANS TİPİ SEÇİM KARTI ve DROPDOWN YAPISI */
+.avansTipiKonteyner {
+  position: relative;
+}
+
+.avansTipiKart {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  border: 1px solid #f1f5f9;
+}
+
+.avansTipiSol {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.avansTipiIkonKutu {
+  width: 40px;
+  height: 40px;
+  background: #f3e8ff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a855f7;
+}
+
+.avansTipiMetin {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #1e1b4b;
+}
+
+.avansTipiMetinGri {
+  color: #94a3b8;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f1f5f9;
+  margin-top: 6px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.dropdownItem {
+  padding: 14px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e1b4b;
+  cursor: pointer;
+  border-bottom: 1px solid #f8fafc;
+  transition: background 0.15s ease;
+}
+
+.dropdownItem:hover {
+  background: #f3e8ff;
+  color: #7c3aed;
+}
+
+/* AVANS TUTARI INPUT KARTI  */
+.tutarKart {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  border: 1px solid #f1f5f9;
+}
+
+.tlSimgesi {
+  font-size: 20px;
+  font-weight: 900;
+  color: #94a3b8;
+}
+
+.tutarInput {
+  border: none;
+  outline: none;
+  font-size: 22px;
+  font-weight: 900;
+  color: #1e1b4b;
+  width: 100%;
+  background: transparent;
+  font-family: inherit;
+}
+
+.tutarInput::placeholder {
+  color: #1e1b4b;
+}
+
+/* AÇIKLAMA */
+.aciklamaInput {
+  width: 100%;
+  height: 95px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 16px 18px;
+  border: 1px solid #f1f5f9;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e1b4b;
+  outline: none;
+  resize: none;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.aciklamaInput::placeholder {
+  color: #94a3b8;
+}
+
+/* TALEBİ GÖNDER BUTONU */
+.gonderButon {
+  width: 100%;
+  background: linear-gradient(135deg, #a855f7 0%, #8b5cf6 100%);
+  border-radius: 18px;
+  padding: 16px;
+  border: none;
+  color: #ffffff;
+  font-size: 15.5px;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+  margin-top: 6px;
+}
