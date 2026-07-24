@@ -47,7 +47,6 @@ export default function App() {
   const [etkinlikListesiAcik, setEtkinlikListesiAcik] = useState(false);
   const [gorevListesiAcik, setGorevListesiAcik] = useState(false);
 
-  // Sayfa yükleniyor ekranı zamanlayıcı
   useEffect(() => {
     const zamanlayici = setTimeout(() => {
       setYukleniyor(false);
@@ -56,13 +55,11 @@ export default function App() {
     return () => clearTimeout(zamanlayici);
   }, []);
 
-  // Şifre güncellendiğinde veya Oturumu Kapat'a basıldığında giriş ekranına yönlendirir
   const handleSifreGuncellendi = () => {
     setSifreDegistirAcik(false);
     setGirisYapildi(false);
   };
 
-  // Oturumu kapat butonuna basılınca çalışan fonksiyon
   const handleOturumuKapat = () => {
     setProfilAcik(false);
     setGirisYapildi(false);
@@ -72,7 +69,6 @@ export default function App() {
     return <YukleniyorEkrani />;
   }
 
-  // Eğer giriş yapılmamışsa Giriş Ekranı gösterilir
   if (!girisYapildi) {
     return <GirisEkrani onGirisBasarili={() => setGirisYapildi(true)} />;
   }
@@ -197,7 +193,7 @@ export default function App() {
         kapat={() => setGorevListesiAcik(false)} 
       />
 
-      <div style={styles.icerikAlani}>
+      <div style={styles.icerikAlani} className="gizliScroll">
         <ÜstBar 
           onMenuTikla={() => setYanMenuAcik(true)} 
           onBildirimTikla={() => setBildirimlerAcik(true)} 
@@ -220,21 +216,22 @@ export default function App() {
 
 const styles = {
   anaEkranKonteyner: {
-    width: '100vw',
+    width: '100%',
     height: '100vh',
     backgroundColor: '#F8F7FC', 
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between',
     overflow: 'hidden',
     position: 'relative',
+    boxSizing: 'border-box',
   },
   icerikAlani: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '24px',
+    gap: '18px', 
     overflowY: 'auto',
-    paddingBottom: '16px ', 
+    padding: '0 20px 100px 20px', 
     flex: 1,
+    boxSizing: 'border-box',
   }
 };

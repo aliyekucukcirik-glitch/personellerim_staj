@@ -21,7 +21,7 @@
   }
 }
 
-/* Üst Bar */
+/*  ÜST BAR VE KAPATMA BUTONU */
 .ustBar {
   display: flex;
   align-items: center;
@@ -29,6 +29,7 @@
   position: relative;
   margin-bottom: 20px;
   padding-top: 8px;
+  width: 100%;
 }
 
 .baslikYazi {
@@ -41,7 +42,8 @@
 
 .kapatButon {
   position: absolute;
-  right: 0;
+  right: 12px; 
+  top: 4px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -49,7 +51,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4px;
+  padding: 6px;
 }
 
 /* İçerik Hizalama */
@@ -59,15 +61,15 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 380px;
+  max-width: 420px;
   margin: 0 auto;
   flex: 1;
   padding-bottom: 24px;
 }
 
 .kameraKutusu {
-  width: 328px;
-  height: 328px;
+  width: 340px;
+  height: 340px;
   position: relative;
   display: flex;
   align-items: center;
@@ -75,12 +77,17 @@
   margin-top: 10px;
   margin-bottom: 32px;
   cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.kameraKutusu:active {
+  transform: scale(0.98);
 }
 
 .koselik {
   position: absolute;
-  width: 58px;
-  height: 58px;
+  width: 64px;
+  height: 64px;
   border-color: #8b5cf6;
   border-style: solid;
 }
@@ -89,33 +96,33 @@
   top: 0;
   left: 0;
   border-width: 4px 0 0 4px;
-  border-top-left-radius: 16px;
+  border-top-left-radius: 18px;
 }
 
 .sagUst {
   top: 0;
   right: 0;
   border-width: 4px 4px 0 0;
-  border-top-right-radius: 16px;
+  border-top-right-radius: 18px;
 }
 
 .solAlt {
   bottom: 0;
   left: 0;
   border-width: 0 0 4px 4px;
-  border-bottom-left-radius: 16px;
+  border-bottom-left-radius: 18px;
 }
 
 .sagAlt {
   bottom: 0;
   right: 0;
   border-width: 0 4px 4px 0;
-  border-bottom-right-radius: 16px;
+  border-bottom-right-radius: 18px;
 }
 
 .lazerCizgi {
   width: 3px;
-  height: 240px;
+  height: 260px;
   background: linear-gradient(180deg, rgba(139, 92, 246, 0.2) 0%, #8b5cf6 50%, rgba(139, 92, 246, 0.2) 100%);
   border-radius: 2px;
   box-shadow: 0 0 14px rgba(139, 92, 246, 0.6);
@@ -134,7 +141,6 @@
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  margin-top: 10px;
 }
 
 .odakYazi {
@@ -142,7 +148,6 @@
   font-weight: 700;
   color: #1e1b4b;
   text-align: center;
-  margin-bottom: 8px;
 }
 
 .konumKart {
@@ -178,22 +183,23 @@
 }
 
 .altAciklama {
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 500;
   color: #94a3b8;
   text-align: center;
   line-height: 1.4;
 }
 
-/*POP-UP (1. GÖRSEL) */
+/* POP-UP MODAL */
 .modalKarartma {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(30, 27, 75, 0.35);
+  background: rgba(30, 27, 75, 0.4);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   z-index: 2000;
   display: flex;
   align-items: center;
@@ -204,7 +210,7 @@
 
 .modalKart {
   width: 100%;
-  max-width: 350px; 
+  max-width: 340px; 
   background: #ffffff;
   border-radius: 32px;
   padding: 32px 20px 20px 20px;
@@ -214,13 +220,25 @@
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  animation: popAcilis 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes popAcilis {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .modalKapat {
   position: absolute;
-  top: 24px;
-  right: 24px;
+  top: 20px;
+  right: 20px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -235,12 +253,12 @@
 .basariKart {
   width: 100%;
   border-radius: 24px;
-  padding: 30px 16px;
+  padding: 28px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: #ffffff;
-  margin-top: 16px;
+  margin-top: 10px;
   margin-bottom: 16px;
   box-sizing: border-box;
 }
@@ -273,7 +291,7 @@
 }
 
 .basariSaat {
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 600;
   opacity: 0.95;
 }

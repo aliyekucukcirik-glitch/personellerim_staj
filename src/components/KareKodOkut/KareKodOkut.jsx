@@ -7,36 +7,43 @@ export default function KareKodOkut({ acikMi, kapat }) {
 
   if (!acikMi) return null;
 
-  const handleEkranTiklama = () => {
-    if (modalDurumu === null) {
-      setModalDurumu('giris');
-    } else if (modalDurumu === 'giris') {
+  // Kamera çerçevesine basıldığında Giriş kartını açar
+  const handleKameraTiklama = (e) => {
+    e.stopPropagation();
+    setModalDurumu('giris');
+  };
+
+  // Pop-up kartına tıklandığında geçişleri kontrol eder (Giriş -> Çıkış -> Kapanış)
+  const handleModalKartTiklama = (e) => {
+    e.stopPropagation();
+    if (modalDurumu === 'giris') {
       setModalDurumu('cikis');
-    } else {
+    } else if (modalDurumu === 'cikis') {
       setModalDurumu(null);
     }
   };
 
+  // X Butonuna basıldığında modalı kapatır
   const handleModalKapat = (e) => {
     e.stopPropagation();
     setModalDurumu(null);
   };
 
   return (
-    <div className={styles.tamSayfaKonteyner} onClick={handleEkranTiklama}>
+    <div className={styles.tamSayfaKonteyner}>
       
       {/* Üst Bar */}
       <div className={styles.ustBar}>
         <span className={styles.baslikYazi}>KARE KOD OKUT</span>
-        <button className={styles.kapatButon} onClick={kapat}>
+        <button type="button" className={styles.kapatButon} onClick={kapat}>
           <X size={24} strokeWidth={2.5} />
         </button>
       </div>
 
       <div className={styles.icerikAlani}>
         
-        {/* KAMERA ÇERÇEVESİ */}
-        <div className={styles.kameraKutusu}>
+        {/* KAMERA ÇERÇEVESİ (Tıklama Alanı) */}
+        <div className={styles.kameraKutusu} onClick={handleKameraTiklama}>
           <div className={`${styles.koselik} ${styles.solUst}`} />
           <div className={`${styles.koselik} ${styles.sagUst}`} />
           <div className={`${styles.koselik} ${styles.solAlt}`} />
@@ -64,11 +71,11 @@ export default function KareKodOkut({ acikMi, kapat }) {
 
       </div>
 
-      {/* POP-UP */}
+      {/* POP-UP (Giriş / Çıkış Başarılı Kartı) */}
       {modalDurumu && (
-        <div className={styles.modalKarartma} onClick={handleEkranTiklama}>
-          <div className={styles.modalKart} onClick={(e) => e.stopPropagation()}>
-            <button className={styles.modalKapat} onClick={handleModalKapat}>
+        <div className={styles.modalKarartma} onClick={() => setModalDurumu(null)}>
+          <div className={styles.modalKart} onClick={handleModalKartTiklama}>
+            <button type="button" className={styles.modalKapat} onClick={handleModalKapat}>
               <X size={24} strokeWidth={2.2} />
             </button>
 
@@ -106,7 +113,7 @@ export default function KareKodOkut({ acikMi, kapat }) {
                   <span>Bugünkü çıkış kaydınız başarıyla alındı.</span>
                 </div>
               </>
-            )}2
+            )}
 
           </div>
         </div>

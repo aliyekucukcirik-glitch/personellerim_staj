@@ -3,7 +3,7 @@
   box-sizing: border-box;
   padding: 0; 
   background-color: transparent;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   z-index: 100;
@@ -12,57 +12,52 @@
 .altBarKonteyner {
   width: 100%;
   box-sizing: border-box;
-  padding: 30px 26px 20px 26px; 
+  padding: 14px 20px 36px 20px; 
   background-color: #FFFFFF;
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
+  border-top-left-radius: 36px;
+  border-top-right-radius: 36px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end; /* Tüm elemanların alt tabanını eşitler */
-  box-shadow: 0 -10px 30px rgba(109, 40, 217, 0.06);
+  align-items: flex-end;
+  box-shadow: 0 -10px 30px rgba(109, 40, 217, 0.08);
 }
-
 
 .menuEleman {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   flex: 1;
-  height: 48px; 
   gap: 6px;
 }
 
 .yazi {
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 11.5px;
+  font-weight: 700;
   color: #64748B;
-  white-space: nowrap; /* Yazıların kırılmasını engeller */
+  white-space: nowrap;
 }
-
 
 .morButonGrup {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   flex: 1;
-  height: 48px;
 }
 
-
 .morButon {
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   background: linear-gradient(135deg, #A855F7 0%, #6D28D9 100%);
-  border-radius: 20px;
+  border-radius: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 10px 25px rgba(109, 40, 217, 0.35);
-  position: absolute;
-  top: -42px; 
+  margin-top: -46px; 
+  margin-bottom: 8px;
 }

@@ -1,0 +1,17 @@
+Sayfalardaki Çirkin Scrollbar Çubuklarını Gizleme
+.gizliScroll {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE / Edge */
+}
+
+.gizliScroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Global Ekran Taşma Engeli */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+}

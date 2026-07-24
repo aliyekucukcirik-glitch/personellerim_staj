@@ -34,7 +34,7 @@
 
 .vardiyaKarti {
   background: linear-gradient(135deg, #A855F7 0%, #6D28D9 100%);
-  border-radius: 32px; /* Köşeler tam görseldeki gibi ultra oval */
+  border-radius: 32px; 
   padding: 24px;
   color: #FFFFFF;
   text-align: left; /* Kart içi yazılar da tamamen sola yaslı */
@@ -43,7 +43,6 @@
   box-shadow: 0 12px 30px rgba(83, 36, 159, 0.45);
 }
 
-/*  sol üstündeki o narin parıltı/ışık bulutu efekti */
 .vardiyaKarti::before {
   content: '';
   position: absolute;

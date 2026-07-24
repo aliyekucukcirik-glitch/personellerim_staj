@@ -1,102 +1,183 @@
-/* Arka plan karartma */
-.karartmaKatmani {
+/* Tam Ekran Modal / Sayfa Kapsayıcısı */
+.tamSayfaKonteyner {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(15, 23, 42, 0.35);
-  z-index: 200;
-  opacity: 0;
-  animation: kararmaAcilis 0.2s ease-out forwards;
-}
-
-@keyframes kararmaAcilis {
-  to {
-    opacity: 1;
-  }
-}
-
-.baloncukGrubu {
-  position: absolute;
-  bottom: 95px; /* Alt barın tam üzerinde hizalı */
-  left: 12px;   /* Ekranın soluna tam yaslı */
+  background-color: #f6f5fb;
+  z-index: 1000;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 8px; 
-  z-index: 201;
+  padding: 20px 24px 32px 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  transform: translateY(100%);
+  animation: sayfayaGiris 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Genel Buton Yapısı */
-.baloncukEleman {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background-color: #ffffff;
-  border-radius: 18px;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
-  
-  /* Sıralı Animasyon */
-  opacity: 0;
-  transform: translateY(16px) scale(0.95);
-  animation: baloncukAcilis 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
-@keyframes baloncukAcilis {
+@keyframes sayfayaGiris {
   to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
 
-
-.baloncukEleman:nth-child(1) { animation-delay: 0.02s; }
-.baloncukEleman:nth-child(2) { animation-delay: 0.05s; }
-.baloncukEleman:nth-child(3) { animation-delay: 0.08s; }
-.baloncukEleman:nth-child(4) { animation-delay: 0.11s; }
-.baloncukEleman:nth-child(5) { animation-delay: 0.14s; }
-
-/* 1. PROFİL BİLGİLERİ  */
-.profilAnaBaloncuk {
-  padding: 12px 24px 12px 14px;
-  min-width: 250px;
-}
-
-.profilIkonKutusu {
-  width: 36px;
-  height: 36px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #A855F7 0%, #6D28D9 100%);
+/* Üst Bar */
+.ustBar {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  margin-bottom: 24px;
+  padding-top: 4px;
+  width: 100%;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.baslikYazi {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1e1b4b;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.kapatButon {
+  position: absolute;
+  right: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #1e1b4b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+
+/* İçerik Alanı */
+.icerikAlani {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  flex: 1;
+}
+
+/*  AVATAR & İSİM  */
+.profilKart {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  border: 1px solid #f1f5f9;
+}
+
+.avatarKonteyner {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.avatarDaire {
+  width: 90px;
+  height: 90px;
+  background: #e2e8f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kameraRozet {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 28px;
+  height: 28px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  border: 2px solid #ffffff;
+}
+
+.kullaniciAdi {
+  font-size: 20px;
+  font-weight: 900;
+  color: #1e1b4b;
+  margin-bottom: 6px;
+}
+
+.idRozet {
+  background: #f3e8ff;
+  color: #8b5cf6;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 14px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* İLETİŞİM BİLGİLERİ  */
+.bilgiKart {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  border: 1px solid #f1f5f9;
+}
+
+.satir {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ikon {
+  color: #8b5cf6;
   flex-shrink: 0;
 }
 
-/* DİĞER 4 BUTON  */
-.esitBaloncuk {
-  padding: 12px 20px;
-  width: 200px;
-  box-sizing: border-box;
+.degerYazi {
+  font-size: 15px;
+  font-weight: 800;
+  color: #1e1b4b;
 }
 
-/* YAZI DÜZENİ */
-.yazi {
-  font-size: 14.5px;
-  font-weight: 600;
-  color: #1E1B4B;
-  white-space: nowrap;
+/*  DEPARTMAN VE POZİSYON  */
+.departmanKart {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  border: 1px solid #f1f5f9;
 }
 
-/* 5. OTURUMU KAPAT */
-.cikisBaloncuk {
-  background-color: #fae7e7; 
+.blok {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.cikisYazi {
-  color: #EF4444;
-  font-weight: 700;
+.etiket {
+  font-size: 11px;
+  font-weight: 800;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
