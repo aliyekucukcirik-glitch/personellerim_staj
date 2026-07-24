@@ -29,7 +29,8 @@ export default function YanMenu({
   onSaatlikIzinAc,
   onAvansTaleplerimAc,
   onZimmetlerimAc,
-  onEtkinlikListesiAc
+  onEtkinlikListesiAc,
+  onGorevListesiAc
 }) {
   const [acikAkordeon, setAcikAkordeon] = useState(null);
 
@@ -107,6 +108,12 @@ export default function YanMenu({
   const handleEtkinlikListesiTikla = () => {
     kapat();
     if (onEtkinlikListesiAc) onEtkinlikListesiAc();
+  };
+
+  // Görev Listesi
+  const handleGorevListesiTikla = () => {
+    kapat();
+    if (onGorevListesiAc) onGorevListesiAc();
   };
 
   return (
@@ -229,13 +236,13 @@ export default function YanMenu({
           </div>
 
           {/* 5. GÖREVLERİM */}
-          <div className={styles.menuKart}>
-            <div className={styles.solIkonYazi}>
+          <div className={styles.menuKart} onClick={handleGorevListesiTikla} style={{ cursor: 'pointer' }}>
+             <div className={styles.solIkonYazi}>
               <ClipboardCheck className={styles.solIkon} size={20} />
-              <span>Görevlerim</span>
-            </div>
+               <span>Görevlerim</span>
+              </div>
             <ChevronRight className={styles.sagOk} size={18} />
-          </div>
+             </div>
 
         </div>
 

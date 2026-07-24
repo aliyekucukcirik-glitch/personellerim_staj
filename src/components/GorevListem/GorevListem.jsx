@@ -24,7 +24,7 @@ export default function GorevListem({ acikMi, kapat }) {
   const gorevler = [
     {
       id: 1,
-      yuzde: "%65",
+      yuzde: "65%", 
       isTuruncu: true,
       baslik: "Yeni Personel Dosyaları",
       atayan: "Atayan: İK Müdürü Selin Ç.",
@@ -35,7 +35,7 @@ export default function GorevListem({ acikMi, kapat }) {
     },
     {
       id: 2,
-      yuzde: "%0",
+      yuzde: "0%", 
       isTuruncu: false,
       baslik: "Ürün Sayımı - Depo B",
       atayan: "Atayan: Depo Sorumlusu Mert Y.",
@@ -107,11 +107,13 @@ export default function GorevListem({ acikMi, kapat }) {
                 className={`${styles.gorevKart} ${item.vurgulu ? styles.gorevKartVurgu : ''}`}
               >
                 
-                {/* Kart Üst: Yüzde Dairesi  ve Başlık */}
+                {/* Kart Üst: Yüzde Dairesi ve Başlık */}
                 <div className={styles.kartUst}>
+                  {/*yuzdeDaireMetin kapsülü eklendi */}
                   <div className={`${styles.yuzdeDaire} ${item.isTuruncu ? styles.yuzdeDaireTuruncu : styles.yuzdeDaireGri}`}>
-                    {item.yuzde}
+                    <span className={styles.yuzdeDaireMetin}>{item.yuzde}</span>
                   </div>
+
                   <div className={styles.baslikMetinKutusu}>
                     <h3 className={styles.gorevBaslik}>{item.baslik}</h3>
                     <span className={styles.atayanYazi}>{item.atayan}</span>

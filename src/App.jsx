@@ -23,6 +23,7 @@ import SaatlikIzinTaleplerim from './components/SaatlikIzinTaleplerim/SaatlikIzi
 import AvansTaleplerim from './components/AvansTaleplerim/AvansTaleplerim.jsx';
 import Zimmetlerim from './components/Zimmetlerim/Zimmetlerim.jsx';
 import EtkinlikListesi from './components/EtkinlikListesi/EtkinlikListesi.jsx';
+import GorevListem from './components/GorevListem/GorevListem.jsx';
 
 export default function App() {
   const [yukleniyor, setYukleniyor] = useState(true);
@@ -44,6 +45,7 @@ export default function App() {
   const [avansTaleplerimAcik, setAvansTaleplerimAcik] = useState(false);
   const [zimmetlerimAcik, setZimmetlerimAcik] = useState(false);
   const [etkinlikListesiAcik, setEtkinlikListesiAcik] = useState(false);
+  const [gorevListesiAcik, setGorevListesiAcik] = useState(false);
 
   // Sayfa yükleniyor ekranı zamanlayıcı
   useEffect(() => {
@@ -147,6 +149,7 @@ export default function App() {
         onAvansTaleplerimAc={() => setAvansTaleplerimAcik(true)}
         onZimmetlerimAc={() => setZimmetlerimAcik(true)}
         onEtkinlikListesiAc={() => setEtkinlikListesiAcik(true)}
+        onGorevListesiAc={() => setGorevListesiAcik(true)}
       />
 
       <VardiyaPlanim 
@@ -187,6 +190,11 @@ export default function App() {
       <EtkinlikListesi 
         acikMi={etkinlikListesiAcik} 
         kapat={() => setEtkinlikListesiAcik(false)} 
+      />
+
+      <GorevListem 
+        acikMi={gorevListesiAcik} 
+        kapat={() => setGorevListesiAcik(false)} 
       />
 
       <div style={styles.icerikAlani}>
