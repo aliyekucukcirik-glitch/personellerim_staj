@@ -20,6 +20,7 @@ import GirisCikisBilgilerim from './components/GirisCikisBilgilerim/GirisCikisBi
 import MaasBilgilerim from './components/MaasBilgilerim/MaasBilgilerim.jsx';
 import IzinTaleplerim from './components/IzinTaleplerim/IzinTaleplerim.jsx';
 import SaatlikIzinTaleplerim from './components/SaatlikIzinTaleplerim/SaatlikIzinTaleplerim.jsx';
+import AvansTaleplerim from './components/AvansTaleplerim/AvansTaleplerim.jsx';
 
 export default function App() {
   const [yukleniyor, setYukleniyor] = useState(true);
@@ -38,6 +39,7 @@ export default function App() {
   const [maasBilgilerimAcik, setMaasBilgilerimAcik] = useState(false);
   const [izinTaleplerimAcik, setIzinTaleplerimAcik] = useState(false);
   const [saatlikIzinAcik, setSaatlikIzinAcik] = useState(false);
+  const [avansTaleplerimAcik, setAvansTaleplerimAcik] = useState(false);
 
   // Sayfa yükleniyor ekranı zamanlayıcı
   useEffect(() => {
@@ -138,6 +140,7 @@ export default function App() {
         onMaasBilgilerimAc={() => setMaasBilgilerimAcik(true)}
         onIzinTaleplerimAc={() => setIzinTaleplerimAcik(true)}
         onSaatlikIzinAc={() => setSaatlikIzinAcik(true)}
+        onAvansTaleplerimAc={() => setAvansTaleplerimAcik(true)}
       />
 
       <VardiyaPlanim 
@@ -163,6 +166,11 @@ export default function App() {
       <SaatlikIzinTaleplerim 
         acikMi={saatlikIzinAcik} 
         kapat={() => setSaatlikIzinAcik(false)} 
+      />
+
+      <AvansTaleplerim 
+        acikMi={avansTaleplerimAcik} 
+        kapat={() => setAvansTaleplerimAcik(false)} 
       />
 
       <div style={styles.icerikAlani}>

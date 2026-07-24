@@ -177,7 +177,7 @@
 }
 
 .bosDurumAciklama {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   color: #94a3b8;
   line-height: 1.5;
@@ -343,7 +343,7 @@
 
 .avansTipiMetin {
   font-size: 14.5px;
-  font-weight: 800;
+  font-weight: 600;
   color: #1e1b4b;
 }
 
@@ -396,7 +396,7 @@
 
 .tlSimgesi {
   font-size: 20px;
-  font-weight: 900;
+  font-weight: 100;
   color: #94a3b8;
 }
 
@@ -424,7 +424,7 @@
   padding: 16px 18px;
   border: 1px solid #f1f5f9;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   color: #1e1b4b;
   outline: none;
   resize: none;
