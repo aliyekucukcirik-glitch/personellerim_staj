@@ -26,7 +26,8 @@ export default function YanMenu({
   onGirisCikisAc, 
   onMaasBilgilerimAc,
   onIzinTaleplerimAc,
-  onSaatlikIzinAc
+  onSaatlikIzinAc,
+  onAvansTaleplerimAc
 }) {
   const [acikAkordeon, setAcikAkordeon] = useState(null);
 
@@ -80,13 +81,18 @@ export default function YanMenu({
     }
   };
 
-  // 🌟 Saatlik İzin Taleplerim tıklanınca çalışacak fonksiyon
+  // Saatlik İzin Taleplerim tıklanınca çalışacak fonksiyon
   const handleSaatlikIzinTikla = () => {
     kapat(); // Yan menüyü kapatır
     if (onSaatlikIzinAc) {
       onSaatlikIzinAc(); // Saatlik İzin Taleplerim sayfasını açar
     }
   };
+
+  const handleAvansTaleplerimTikla = () => {
+  kapat();
+  if (onAvansTaleplerimAc) onAvansTaleplerimAc();
+};
 
   return (
     <div className={styles.overlay} onClick={kapat}>
@@ -181,7 +187,7 @@ export default function YanMenu({
                 <span>Saatlik İzin Taleplerim</span>
               </div>
 
-              <div className={styles.altMenuKart}>
+              <div className={styles.altMenuKart} onClick={handleAvansTaleplerimTikla}>
                 <Wallet className={styles.altIkon} size={18} />
                 <span>Avans Taleplerim</span>
               </div>
