@@ -1,0 +1,265 @@
+.tamSayfaKonteyner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f6f5fb;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px 32px 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  transform: translateY(100%);
+  animation: sayfayaGiris 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes sayfayaGiris {
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Üst Bar */
+.ustBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 20px;
+  padding-top: 4px;
+  width: 100%;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.baslikYazi {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1e1b4b;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.kapatButon {
+  position: absolute;
+  right: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #1e1b4b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+
+.icerikAlani {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  flex: 1;
+  position: relative;
+}
+
+/*  CAROUSEL FİLTRE SEKMELERİ */
+.carouselKonteyner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carouselKonteyner::-webkit-scrollbar {
+  display: none;
+}
+
+.glassKapsul {
+  padding: 10px 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  font-size: 12px;
+  font-weight: 800;
+  color: #8b5cf6;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.05);
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.glassKapsul:hover {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.glassKapsulAktif {
+  background: linear-gradient(135deg, #a855f7 0%, #8b5cf6 100%);
+  color: #ffffff;
+  border: 1px solid transparent;
+  box-shadow: 0 6px 16px rgba(168, 85, 247, 0.35);
+}
+
+/* FİLTRE ZAMAN SEKMELERİ (Bu Hafta / Bu Ay / Bu Yıl) */
+.sekmelerKonteyner {
+  background: #ede9fe;
+  border-radius: 18px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.sekmeButon {
+  flex: 1;
+  padding: 11px 0;
+  border: none;
+  border-radius: 14px;
+  background: transparent;
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #8b5cf6;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sekmeButonAktif {
+  background: linear-gradient(135deg, #a855f7 0%, #8b5cf6 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
+}
+
+/* GÖREV KART LİSTESİ */
+.gorevListesi {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.gorevKart {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  border: 1.5px solid #f1f5f9;
+  transition: transform 0.2s ease;
+}
+
+/* Turuncu/Altın Çerçeveli Vurgulu Kart */
+.gorevKartVurgu {
+  border: 1.8px solid #f59e0b;
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.12);
+}
+
+/*  Yüzde Dairesi + Başlık */
+.kartUst {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Dairesel Yüzde İlerleme İkonu */
+.yuzdeDaire {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 900;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Turuncu Daire (%65) */
+.yuzdeDaireTuruncu {
+  border: 4px solid #f59e0b;
+  color: #1e1b4b;
+}
+
+/* Gri Daire (%0) */
+.yuzdeDaireGri {
+  border: 4px solid #e2e8f0;
+  color: #8b5cf6;
+}
+
+.baslikMetinKutusu {
+  display: flex;
+  flex-direction: column;
+}
+
+.gorevBaslik {
+  font-size: 16px;
+  font-weight: 900;
+  color: #1e1b4b;
+  margin: 0 0 4px 0;
+}
+
+.atayanYazi {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #94a3b8;
+}
+
+/* Kart Alt (Tarih + Durum Rozeti) */
+.kartAlt {
+  border-top: 1px solid #f8fafc;
+  padding-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tarihGrup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #64748b;
+}
+
+.tarihIkon {
+  color: #94a3b8;
+}
+
+.durumRozet {
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 11.5px;
+  font-weight: 800;
+}
+
+.rozetSari {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.rozetMor {
+  background: #f3e8ff;
+  color: #7c3aed;
+}
+
+/* Boş Durum */
+.bosDurum {
+  text-align: center;
+  padding: 40px 20px;
+  color: #94a3b8;
+  font-size: 13.5px;
+  font-weight: 700;
+}
