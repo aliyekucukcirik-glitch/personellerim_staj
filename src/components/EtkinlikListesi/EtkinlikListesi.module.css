@@ -1,0 +1,261 @@
+.tamSayfaKonteyner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f6f5fb;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px 32px 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  transform: translateY(100%);
+  animation: sayfayaGiris 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes sayfayaGiris {
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Üst Bar */
+.ustBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 20px;
+  padding-top: 4px;
+  width: 100%;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.baslikYazi {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1e1b4b;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.kapatButon {
+  position: absolute;
+  right: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #1e1b4b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+
+.icerikAlani {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  flex: 1;
+  position: relative;
+}
+
+/*  FİLTRE SEKMELERİ  */
+.sekmelerKonteyner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+
+.sekmelerKonteyner::-webkit-scrollbar {
+  display: none;
+}
+
+.sekmeButon {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 16px;
+  background: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  color: #8b5cf6;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  border: 1px solid #f1f5f9;
+  transition: all 0.2s ease;
+}
+
+.sekmeButonAktif {
+  background: linear-gradient(135deg, #a855f7 0%, #8b5cf6 100%);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 14px rgba(168, 85, 247, 0.35);
+}
+
+/* BİLET TASARIMLI ETKİNLİK KART LİSTESİ */
+.etkinlikListesi {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.biletKart {
+  display: flex;
+  position: relative;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.03));
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+/* Bilet Sol kısım (Tarih Alanı) */
+.biletSol {
+  width: 125px;
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+  flex-shrink: 0;
+}
+
+/* Mor Bilet Sol */
+.biletSolAktif {
+  background: linear-gradient(135deg, #a855f7 0%, #8b5cf6 100%);
+  color: #ffffff;
+}
+
+/* Gri Bilet Sol */
+.biletSolGecmis {
+  background: #cbd5e1;
+  color: #ffffff;
+}
+
+.tarihAy {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  opacity: 0.9;
+  margin-bottom: 2px;
+}
+
+.tarihGun {
+  font-size: 34px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.tarihGunAdi {
+  font-size: 12px;
+  font-weight: 800;
+  opacity: 0.9;
+}
+
+/* BİLET BİRLEŞİM ÇİZGİLERİ 🌟 */
+.biletKesikCizgi {
+  position: relative;
+  width: 0px;
+  border-right: 2px dashed #f6f5fb;
+  z-index: 2;
+}
+
+.centikUst {
+  position: absolute;
+  top: -10px;
+  left: -8px;
+  width: 16px;
+  height: 16px;
+  background-color: #f6f5fb;
+  border-radius: 50%;
+  z-index: 3;
+}
+
+.centikAlt {
+  position: absolute;
+  bottom: -10px;
+  left: -8px;
+  width: 16px;
+  height: 16px;
+  background-color: #f6f5fb;
+  border-radius: 50%;
+  z-index: 3;
+}
+
+/* Bilet Sağ Gövde  */
+.biletSag {
+  flex: 1;
+  background: #ffffff;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+.etkinlikBaslik {
+  font-size: 15px;
+  font-weight: 900;
+  color: #1e1b4b;
+  line-height: 1.35;
+  margin: 0 0 10px 0;
+}
+
+.detaySatir {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.detayIkon {
+  color: #94a3b8;
+  flex-shrink: 0;
+}
+
+.durumRozet {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 4px 14px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 800;
+  margin-top: 4px;
+}
+
+.durumRozetAktif {
+  background: #f3e8ff;
+  color: #8b5cf6;
+}
+
+.durumRozetGecmis {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+/* Boş Durum */
+.bosDurum {
+  text-align: center;
+  padding: 40px 20px;
+  color: #94a3b8;
+  font-size: 13.5px;
+  font-weight: 700;
+}
