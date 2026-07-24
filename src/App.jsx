@@ -22,6 +22,7 @@ import IzinTaleplerim from './components/IzinTaleplerim/IzinTaleplerim.jsx';
 import SaatlikIzinTaleplerim from './components/SaatlikIzinTaleplerim/SaatlikIzinTaleplerim.jsx';
 import AvansTaleplerim from './components/AvansTaleplerim/AvansTaleplerim.jsx';
 import Zimmetlerim from './components/Zimmetlerim/Zimmetlerim.jsx';
+import EtkinlikListesi from './components/EtkinlikListesi/EtkinlikListesi.jsx';
 
 export default function App() {
   const [yukleniyor, setYukleniyor] = useState(true);
@@ -42,6 +43,7 @@ export default function App() {
   const [saatlikIzinAcik, setSaatlikIzinAcik] = useState(false);
   const [avansTaleplerimAcik, setAvansTaleplerimAcik] = useState(false);
   const [zimmetlerimAcik, setZimmetlerimAcik] = useState(false);
+  const [etkinlikListesi, setEtkinlikListesiAcik] = useState(false);
 
   // Sayfa yükleniyor ekranı zamanlayıcı
   useEffect(() => {
@@ -144,6 +146,7 @@ export default function App() {
         onSaatlikIzinAc={() => setSaatlikIzinAcik(true)}
         onAvansTaleplerimAc={() => setAvansTaleplerimAcik(true)}
         onZimmetlerimAc={() => setZimmetlerimAcik(true)}
+        onEtkinlikListesiAc={() => setEtkinlikListesiAcik(true)}
       />
 
       <VardiyaPlanim 
@@ -180,6 +183,11 @@ export default function App() {
         acikMi={zimmetlerimAcik} 
         kapat={() => setZimmetlerimAcik(false)} 
       />
+
+      <EtkinlikListesi
+         acikMi={EtkinlikListesi}
+         kapat={() => setEtkinlikListesiAcik(false)}
+         />
 
       <div style={styles.icerikAlani}>
         <ÜstBar 
