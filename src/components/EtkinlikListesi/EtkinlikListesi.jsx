@@ -7,6 +7,7 @@ export default function EtkinlikListesi({ acikMi, kapat }) {
 
   if (!acikMi) return null;
 
+  // Görseldeki Etkinlik Verileri
   const etkinlikler = [
     {
       id: 1,
@@ -44,7 +45,13 @@ export default function EtkinlikListesi({ acikMi, kapat }) {
       {/* Üst Bar */}
       <div className={styles.ustBar}>
         <span className={styles.baslikYazi}>ETKİNLİK LİSTESİ</span>
-        <button className={styles.kapatButon} onClick={kapat}>
+        {/* KAPATMA BUTONU TIKLAMA OLAYI */}
+        <button 
+          type="button" 
+          className={styles.kapatButon} 
+          onClick={kapat}
+          aria-label="Kapat"
+        >
           <X size={24} strokeWidth={2.5} />
         </button>
       </div>
@@ -56,6 +63,7 @@ export default function EtkinlikListesi({ acikMi, kapat }) {
           {['Tümü', 'Aktif', 'Gelecek', 'Geçmiş', 'İptal'].map((sekme) => (
             <button
               key={sekme}
+              type="button"
               className={`${styles.sekmeButon} ${aktifSekme === sekme ? styles.sekmeButonAktif : ''}`}
               onClick={() => setAktifSekme(sekme)}
             >

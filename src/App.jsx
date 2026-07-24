@@ -43,7 +43,7 @@ export default function App() {
   const [saatlikIzinAcik, setSaatlikIzinAcik] = useState(false);
   const [avansTaleplerimAcik, setAvansTaleplerimAcik] = useState(false);
   const [zimmetlerimAcik, setZimmetlerimAcik] = useState(false);
-  const [etkinlikListesi, setEtkinlikListesiAcik] = useState(false);
+  const [etkinlikListesiAcik, setEtkinlikListesiAcik] = useState(false);
 
   // Sayfa yükleniyor ekranı zamanlayıcı
   useEffect(() => {
@@ -184,10 +184,10 @@ export default function App() {
         kapat={() => setZimmetlerimAcik(false)} 
       />
 
-      <EtkinlikListesi
-         acikMi={EtkinlikListesi}
-         kapat={() => setEtkinlikListesiAcik(false)}
-         />
+      <EtkinlikListesi 
+        acikMi={etkinlikListesiAcik} 
+        kapat={() => setEtkinlikListesiAcik(false)} 
+      />
 
       <div style={styles.icerikAlani}>
         <ÜstBar 

@@ -53,58 +53,61 @@ export default function YanMenu({
 
   // Vardiya Planım tıklanınca çalışacak fonksiyon
   const handleVardiyaPlanimTikla = () => {
-    kapat(); // Yan menüyü kapatır
+    kapat(); 
     if (onVardiyaPlanimAc) {
-      onVardiyaPlanimAc(); // Vardiya Planım sayfasını açar
+      onVardiyaPlanimAc(); 
     }
   };
 
   // Giriş - Çıkış Bilgilerim tıklanınca çalışacak fonksiyon
   const handleGirisCikisTikla = () => {
-    kapat(); // Yan menüyü kapatır
+    kapat(); 
     if (onGirisCikisAc) {
-      onGirisCikisAc(); // Giriş - Çıkış Bilgilerim sayfasını açar
+      onGirisCikisAc(); 
     }
   };
 
   // Maaş Bilgilerim tıklanınca çalışacak fonksiyon
   const handleMaasBilgilerimTikla = () => {
-    kapat(); // Yan menüyü kapatır
+    kapat(); 
     if (onMaasBilgilerimAc) {
-      onMaasBilgilerimAc(); // Maaş Bilgilerim sayfasını açar
+      onMaasBilgilerimAc(); 
     }
   };
 
   // İzin Taleplerim tıklanınca çalışacak fonksiyon
   const handleIzinTaleplerimTikla = () => {
-    kapat(); // Yan menüyü kapatır
+    kapat(); 
     if (onIzinTaleplerimAc) {
-      onIzinTaleplerimAc(); // İzin Taleplerim sayfasını açar
+      onIzinTaleplerimAc(); 
     }
   };
 
   // Saatlik İzin Taleplerim tıklanınca çalışacak fonksiyon
   const handleSaatlikIzinTikla = () => {
-    kapat(); // Yan menüyü kapatır
+    kapat(); 
     if (onSaatlikIzinAc) {
-      onSaatlikIzinAc(); // Saatlik İzin Taleplerim sayfasını açar
+      onSaatlikIzinAc(); 
     }
   };
 
+  // Avans Taleplerim
   const handleAvansTaleplerimTikla = () => {
-  kapat();
-  if (onAvansTaleplerimAc) onAvansTaleplerimAc();
-};
+    kapat();
+    if (onAvansTaleplerimAc) onAvansTaleplerimAc();
+  };
 
-const handleZimmetlerimTikla = () => {
+  // Zimmetlerim
+  const handleZimmetlerimTikla = () => {
     kapat();
     if (onZimmetlerimAc) onZimmetlerimAc();
   };
 
- const handleEtkinlikListesiTiklama = () => {
-  kapat();
-  if (onEtkinlikListesiAc) onEtkinlikListesiAc();
- };
+  // Etkinlik Listesi
+  const handleEtkinlikListesiTikla = () => {
+    kapat();
+    if (onEtkinlikListesiAc) onEtkinlikListesiAc();
+  };
 
   return (
     <div className={styles.overlay} onClick={kapat}>
@@ -193,12 +196,13 @@ const handleZimmetlerimTikla = () => {
                 <span>İzin Taleplerim</span>
               </div>
 
-              {/*  Saatlik İzin Taleplerim */}
+              {/* Saatlik İzin Taleplerim */}
               <div className={styles.altMenuKart} onClick={handleSaatlikIzinTikla}>
                 <Hourglass className={styles.altIkon} size={18} />
                 <span>Saatlik İzin Taleplerim</span>
               </div>
 
+              {/* Avans Taleplerim */}
               <div className={styles.altMenuKart} onClick={handleAvansTaleplerimTikla}>
                 <Wallet className={styles.altIkon} size={18} />
                 <span>Avans Taleplerim</span>
@@ -207,22 +211,22 @@ const handleZimmetlerimTikla = () => {
           )}
 
           {/* 3. ZİMMETLERİM */}
-         <div className={styles.menuKart} onClick={handleZimmetlerimTikla} style={{ cursor: 'pointer' }}>
-          <div className={styles.solIkonYazi}>
-           <Briefcase className={styles.solIkon} size={20} />
-          <span>Zimmetlerim</span>
-        </div>
-          <ChevronRight className={styles.sagOk} size={18} />
-        </div>
+          <div className={styles.menuKart} onClick={handleZimmetlerimTikla} style={{ cursor: 'pointer' }}>
+            <div className={styles.solIkonYazi}>
+              <Briefcase className={styles.solIkon} size={20} />
+              <span>Zimmetlerim</span>
+            </div>
+            <ChevronRight className={styles.sagOk} size={18} />
+          </div>
 
           {/* 4. ETKİNLİK LİSTEM */}
           <div className={styles.menuKart} onClick={handleEtkinlikListesiTikla} style={{ cursor: 'pointer' }}>
-                <div className={styles.solIkonYazi}>
-                <ClipboardList className={styles.solIkon} size={20} />
-               <span>Etkinlik Listem</span>
-           </div>
-               <ChevronRight className={styles.sagOk} size={18} />
+            <div className={styles.solIkonYazi}>
+              <ClipboardList className={styles.solIkon} size={20} />
+              <span>Etkinlik Listem</span>
             </div>
+            <ChevronRight className={styles.sagOk} size={18} />
+          </div>
 
           {/* 5. GÖREVLERİM */}
           <div className={styles.menuKart}>
