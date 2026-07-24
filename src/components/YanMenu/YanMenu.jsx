@@ -27,7 +27,8 @@ export default function YanMenu({
   onMaasBilgilerimAc,
   onIzinTaleplerimAc,
   onSaatlikIzinAc,
-  onAvansTaleplerimAc
+  onAvansTaleplerimAc,
+  onZimmetlerimAc
 }) {
   const [acikAkordeon, setAcikAkordeon] = useState(null);
 
@@ -93,6 +94,11 @@ export default function YanMenu({
   kapat();
   if (onAvansTaleplerimAc) onAvansTaleplerimAc();
 };
+
+const handleZimmetlerimTikla = () => {
+    kapat();
+    if (onZimmetlerimAc) onZimmetlerimAc();
+  };
 
   return (
     <div className={styles.overlay} onClick={kapat}>
@@ -195,13 +201,13 @@ export default function YanMenu({
           )}
 
           {/* 3. ZİMMETLERİM */}
-          <div className={styles.menuKart}>
-            <div className={styles.solIkonYazi}>
-              <Briefcase className={styles.solIkon} size={20} />
-              <span>Zimmetlerim</span>
-            </div>
-            <ChevronRight className={styles.sagOk} size={18} />
-          </div>
+         <div className={styles.menuKart} onClick={handleZimmetlerimTikla} style={{ cursor: 'pointer' }}>
+          <div className={styles.solIkonYazi}>
+           <Briefcase className={styles.solIkon} size={20} />
+          <span>Zimmetlerim</span>
+        </div>
+          <ChevronRight className={styles.sagOk} size={18} />
+        </div>
 
           {/* 4. ETKİNLİK LİSTEM */}
           <div className={styles.menuKart}>
